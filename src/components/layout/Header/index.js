@@ -1,16 +1,14 @@
-import React from 'react'
+import React, { Component } from 'react';
 import './styles/header.scss';
 
-const Header = props => (
-    <header className="header">
-        <input id="header-menu-check" className="header__menu-check" type="checkbox" />
-        <label for="header-menu-check" className="header__menu-button">
-            <span className="header__menu-icon">&nbsp;</span>
-        </label>
+import ToogleMenu from './ToogleMenu';
+import HeaderLogo from './HeaderLogo';
 
-        <figure className="header__logo-fig">
-            <img className="header__logo-img" src="../src/assets/logo.png"></img>
-        </figure>
+
+const Header = ({ onToogleShowSidemenu }) => (
+    <header className="header">
+        <ToogleMenu onClick={() => onToogleShowSidemenu()} />
+        <HeaderLogo imgUrl="../src/assets/logo.png" />
     </header>
 );
 

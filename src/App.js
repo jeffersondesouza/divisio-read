@@ -1,12 +1,18 @@
-import React from 'react'
-
-import Header from './components/layout/Header';
+import React, { Component } from 'react'
 
 
-const App = props => (
-    <div>
-        <Header />
-    </div>
-);
+import HomePage from './pages/HomePage';
+
+class App extends Component {
+
+    render() {
+        return (
+            <div>
+                <HomePage />
+            </div>
+        );
+    }
+}
+
 
 export default App;
