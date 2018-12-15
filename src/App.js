@@ -1,9 +1,11 @@
 import React from 'react'
-import './App.scss'
+
+import Header from './components/layout/Header';
+
 
 const App = props => (
     <div>
-        ola
+        <Header />
     </div>
 );
 

@@ -1,0 +1,53 @@
+@import '../../../../style/sass/abstracts/variables';
+.header {
+    background-color: $color-primary;
+    height: 6rem;
+    display: flex;
+    justify-content: space-between;
+    padding: .5rem 1rem;
+    align-items: center;
+    &__menu-check {}
+    &__menu-button {
+        height: 4rem;
+        width: 4rem;
+        cursor: pointer;
+        align-items: center;
+        text-align: center;
+        display: flex;
+    }
+    &__menu-icon {
+        position: relative;
+        &,
+        &::before,
+        &::after {
+            width: 3rem;
+            height: 4px;
+            background-color: $white;
+            display: inline-block;
+        }
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            transition: all .2s;
+        }
+        &::before {
+            top: -1.2rem;
+        }
+        &::after {
+            top: 1.2rem;
+        }
+    }
+    &__menu-check{
+        display: none;
+    }
+    &__logo-fig {
+        width: 5rem;
+        height: 5rem;
+    }
+    &__logo-img {
+        width: 100%;
+        height: 100%;
+    }
+}
