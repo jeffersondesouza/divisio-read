@@ -9,6 +9,8 @@ import {
 
 function booksReducer(state = INITIAL_STATE, action) {
 
+	console.log(action);
+	
 	switch (action.type) {
 		case LOAD_BOOKS_REQUEST:
 			return {
@@ -17,6 +19,7 @@ function booksReducer(state = INITIAL_STATE, action) {
 				isLoadingBooks: true
 			}
 		case LOAD_BOOKS_SUCCESS:
+		
 			return {
 				...state,
 				books: [...action.payload.books],

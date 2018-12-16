@@ -8,7 +8,7 @@ export default class BooksActions {
         }
     }
 
-    static loadBooksRequest(books) {
+    static loadBooksSuccess(books) {
         return {
             type: Action.LOAD_BOOKS_SUCCESS,
             payload: { books }
