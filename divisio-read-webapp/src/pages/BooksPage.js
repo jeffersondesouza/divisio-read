@@ -6,7 +6,7 @@ import UiMidleware from '../store/modules/ui/middleware';
 import Header from '../components/layout/Header';
 import SideMenu from '../components/ui/SideMenu';
 
-class HomePage extends Component {
+class BooksPage extends Component {
 
     handleToogleShowSidemenu = () => {
         this.props.dispatchToogleSidemenu();
@@ -35,6 +35,6 @@ const mapDispatchToProps = dispatch => ({
 });
 
 
-const HomePageContainer = connect(mapStateToProps, mapDispatchToProps)(HomePage);
+const BooksPageContainer = connect(mapStateToProps, mapDispatchToProps)(BooksPage);
 
-export default HomePageContainer;
+export default BooksPageContainer;

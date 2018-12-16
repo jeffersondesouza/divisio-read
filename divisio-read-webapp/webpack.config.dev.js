@@ -29,6 +29,7 @@ module.exports = {
   output: {
     filename: 'public/bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    publicPath: '/'
   },
   
   module: {
@@ -70,6 +71,9 @@ module.exports = {
         loader: 'url-loader?limit=10000&mimetype=image/svg+xml'
       }
     ]
+  },
+  devServer: {
+    historyApiFallback: true,
   },
   plugins
 }
