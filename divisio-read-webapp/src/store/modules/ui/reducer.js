@@ -1,14 +1,12 @@
 import INITIAL_STATE from './state'
 
-import {
-	TOOGLE_SIDE_MENU
-} from './constants';
+import * as actionsTypes from './constants';
 
 
 function uiReducer(state = INITIAL_STATE, action) {
 
 	switch (action.type) {
-		case TOOGLE_SIDE_MENU:
+		case actionsTypes.TOOGLE_SIDE_MENU:
 			return {
 				...state,
 				showSidbarMenu: !state.showSidbarMenu
