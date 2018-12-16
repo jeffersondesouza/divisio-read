@@ -1,0 +1,29 @@
+@import '../../../style/sass/abstracts/variables';
+@keyframes moveFromLeft {
+    0% {
+        width: 0;
+        transform: translateX(-100rem);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.side-menu {
+    animation: moveFromLeft .3s ease-out;
+    background-color: $white;
+    position: fixed;
+    min-height: 100vh;
+    height: 100vh;
+    padding: 1.5rem;
+    width: 70%;
+    height: 80%;
+    z-index: 1000;
+    transition: all .3s ease-out;
+
+    &--hidden {
+        display: none;
+        transition: all .3s ease-out;
+        transform: translateX(-100rem);
+    }
+}

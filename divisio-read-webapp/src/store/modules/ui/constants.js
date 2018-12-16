@@ -1,0 +1,1 @@
+export const TOOGLE_SIDE_MENU = 'ui:TOOGLE_SIDE_MENU';
