@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import LoginForm from '../components/forms/LoginForm/LoginForm';
+
 
 class LoginPage extends Component {
     render() {
         return (
             <div>
-                login
+                <LoginForm />
             </div>
         );
     }
@@ -18,7 +20,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    dispatchToogleSidemenu: () => dispatch(UiMidleware.toogleSideMenuVisibility())
+    dispatchLogin: () => dispatch(UiMidleware.toogleSideMenuVisibility())
 });
 
 

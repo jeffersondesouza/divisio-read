@@ -33,7 +33,10 @@ class BooksPage extends Component {
 }
 
 
-const mapStateToProps = state => ({ ...state.book });
+const mapStateToProps = state => ({
+    ...state.book,
+    ui: state.ui
+});
 
 const mapDispatchToProps = dispatch => ({
     dispatchLoadBooks: () => dispatch(BookMidleware.loadBooksRequest())
