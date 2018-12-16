@@ -5,7 +5,7 @@ const axios =  require('axios');
 
 const plugins = [];
 const API_URL = JSON.stringify('http://localhost:3000');
-
+const APP_USER_TOKEN_KEY_PARAM = 'userToken';
 
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   hash: true,
@@ -24,6 +24,9 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 plugins.push(HtmlWebpackPluginConfig)
 // we defined API_URL as a env variable, so if the base url changes, we don't need to modify the api call in every file
 plugins.push(new webpack.DefinePlugin({API_URL}));
+plugins.push(new webpack.DefinePlugin({APP_USER_TOKEN_KEY_PARAM}));
+
+
 
 module.exports = {
   entry: './src/index.js',

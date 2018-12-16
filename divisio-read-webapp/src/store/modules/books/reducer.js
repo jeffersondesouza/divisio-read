@@ -8,9 +8,6 @@ import {
 
 
 function booksReducer(state = INITIAL_STATE, action) {
-
-	console.log(action);
-	
 	switch (action.type) {
 		case LOAD_BOOKS_REQUEST:
 			return {

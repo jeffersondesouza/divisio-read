@@ -1,14 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+
+import AuthMiddleware from '../store/modules/auth/middleware';
+
 import LoginForm from '../components/forms/LoginForm/LoginForm';
 
 
 class LoginPage extends Component {
+
+    handleLogin = (e) => {
+        console.log(e);
+
+        this.props.dispatchLogin({ email: 'joao@email.com', password: '123' });
+    }
+
     render() {
         return (
             <div>
-                <LoginForm />
+                <LoginForm onLoggin={this.handleLogin} />
             </div>
         );
     }
@@ -16,11 +26,11 @@ class LoginPage extends Component {
 
 
 const mapStateToProps = state => ({
-    showSidbarMenu: state.ui.showSidbarMenu
+    ui: { ...state.ui }
 });
 
 const mapDispatchToProps = dispatch => ({
-    dispatchLogin: () => dispatch(UiMidleware.toogleSideMenuVisibility())
+    dispatchLogin: ({ email, password }) => dispatch(AuthMiddleware.loginRequest({ email, password }))
 });
 
 
