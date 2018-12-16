@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import UiMidleware from '../store/modules/ui/middleware';
+import UiMidleware from '../../store/modules/ui/middleware';
 
 class BooksDetailsPage extends Component {
 

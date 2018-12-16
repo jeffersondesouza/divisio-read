@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import BookMidleware from '../store/modules/books/middleware';
+import BookMidleware from '../../store/modules/books/middleware';
 
-import Header from '../components/layout/Header';
-import SideMenu from '../components/ui/SideMenu';
+import Header from '../../components/layout/Header';
+import SideMenu from '../../components/ui/SideMenu';
+import UiMidleware from '../../store/modules/ui/middleware';
 
 class BooksPage extends Component {
 
@@ -14,6 +15,7 @@ class BooksPage extends Component {
 
 
     handleToogleShowSidemenu = () => {
+        this.props.dispatchToogleSideMenuVisibility();
     }
 
 
@@ -35,11 +37,12 @@ class BooksPage extends Component {
 
 const mapStateToProps = state => ({
     ...state.book,
-    ui: state.ui
+    showSidbarMenu: state.ui.showSidbarMenu
 });
 
 const mapDispatchToProps = dispatch => ({
-    dispatchLoadBooks: () => dispatch(BookMidleware.loadBooksRequest())
+    dispatchLoadBooks: () => dispatch(BookMidleware.loadBooksRequest()),
+    dispatchToogleSideMenuVisibility: () => dispatch(UiMidleware.toogleSideMenuVisibility()),
 });
 
 

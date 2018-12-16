@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 
-import AuthMiddleware from '../store/modules/auth/middleware';
+import AuthMiddleware from '../../store/modules/auth/middleware';
 
-import LoginForm from '../components/forms/LoginForm/LoginForm';
+import LoginForm from '../../components/forms/LoginForm/LoginForm';
 
 
 class LoginPage extends Component {

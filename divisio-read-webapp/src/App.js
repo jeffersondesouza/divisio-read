@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { Router, Route, browserHistory } from 'react-router';
 
-import LoginPage from './pages/LoginPage';
-import SignUpPage from './pages/SignUpPage';
-import Page404 from './pages/Page404';
-import BooksPage from './pages/BooksPage';
-import BooksDetailsPage from './pages/BooksDetailsPage';
+import LoginPage from './containers/pages/LoginPage';
+import SignUpPage from './containers/pages/SignUpPage';
+import Page404 from './containers/pages/Page404';
+import BooksPage from './containers/pages/BooksPage';
+import BooksDetailsPage from './containers/pages/BooksDetailsPage';
 import { verifyAuthetication } from './utils/RouterRedirector';
 
 
@@ -17,7 +17,7 @@ class App extends Component {
         <Route path="/" exact component={LoginPage} />
         <Route path="/signup" exact component={SignUpPage} />
         <Route path="/books" component={BooksPage} onEnter={verifyAuthetication} />
-        <Route path="/books/:id" component={BooksDetailsPage} />
+        <Route path="/books/:id" component={BooksDetailsPage} onEnter={verifyAuthetication} />
         <Route path="*" component={Page404} />
       </Router>
     );
