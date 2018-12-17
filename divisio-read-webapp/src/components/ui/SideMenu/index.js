@@ -22,9 +22,9 @@ class SideMenu extends Component {
     }
 
     render() {
-        const classes = (this.props.showSidbarMenu)
-            ? 'side-menu'
-            : 'side-menu side-menu--hidden';
+        const classes = (!this.props.showSidbarMenu)
+            ? 'side-menu side-menu--hidden'
+            : 'side-menu';
 
 
         return (

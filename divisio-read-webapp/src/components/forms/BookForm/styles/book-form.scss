@@ -1,0 +1,14 @@
+@import '../../../../style/sass/abstracts/variables';
+
+.book-form {
+  position: fixed;
+  padding: 20% .5rem 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba($black, 0.5);
+  &__wrapper{
+    background-color: $white;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+}

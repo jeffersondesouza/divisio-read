@@ -1,6 +1,7 @@
 @import'../../../../style/sass/abstracts/variables';
 .input-group {
   padding: 0 1.5rem;
+  margin-bottom: 3rem;
   &__wrapper {
     position: relative;
   }
@@ -9,22 +10,32 @@
     font-size: 1.6rem;
     padding: .7rem;
     border: none;
+    background: transparent;
     border-bottom: 2px solid $primary-color-dark;
     transition: all .3s;
     width: calc(100%);
   }
   &__label {
     position: absolute;
-    font-size: 1.3rem;
+    font-size: 1.6rem;
     color: $secondary-color-light;
     top: 0;
     left: 0;
     transition: all .5s;
   }
-  &__input:focus {
-    border-bottom: 3.5px solid $primary-color;
-  }
-  &__input:focus+&__label {
+  &__input::placeholder{
     top: -20px;
   }
+  &__input:focus {
+    border-bottom: 3px solid $primary-color;
+  }
+  &__input:focus ~ &__label, &__input:valid ~ &__label {
+    top: -20px;
+    font-size: 1.3rem;
+  }
+
+  input:not(:empty) + &__label {
+    color: pink;
+  }
+ 
 }

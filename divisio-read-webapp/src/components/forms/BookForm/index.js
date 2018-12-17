@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import './styles/book-form.scss';
+
 import Input from '../../ui/Input';
 import SelectBookStatus from '../../ui/SelectBookStatus';
 
@@ -12,7 +14,7 @@ class BookForm extends Component {
       title: 'ola',
       pages: 199,
       author: 'joao',
-      status:'fechado'
+      status: 'fechado'
     }
   }
 
@@ -23,25 +25,32 @@ class BookForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSaveBook}>
-    
-        <div className="form-group">
-          <Input label="Título" onChange={title => this.setState({ title })} />
+      <div className="book-form">
+        <div>
+          <button>X</button>
         </div>
-        <div className="form-group">
-          <Input label="Autor" onChange={author => this.setState({ author })} />
-        </div>
-        <div className="form-group">
-          <Input label="Páginas" onChange={pages => this.setState({ pages })} />
-        </div>
-        <div className="form-group">
-          <SelectBookStatus value='fechado' onChange={status => this.setState({ status })}/>
-        </div>
+        <form className="book-form__wrapper" onSubmit={this.handleSaveBook}>
+          <div className="form-group">
+            <Input label="Título"  onChange={title => this.setState({ title })} />
+          </div>
+          <div className="form-group">
+            <Input label="Autor"  onChange={author => this.setState({ author })} />
+          </div>
+          <div className="form-group">
+            <Input label="Páginas"  onChange={pages => this.setState({ pages })} />
+          </div>
+          <div className="form-group">
+            <SelectBookStatus value='fechado' onChange={status => this.setState({ status })} />
+          </div>
+          <div className="form-actions">
+            <button className="btn">Salvar</button>
+          </div>
+        </form>
+        
+          <button className="btn-float">+</button>
+        
+      </div>
 
-        <div className="form-actions">
-          <button>Salvar</button>
-        </div>
-      </form>
     );
   }
 

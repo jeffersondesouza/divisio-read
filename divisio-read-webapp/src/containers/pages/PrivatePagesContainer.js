@@ -15,7 +15,6 @@ import BooksDetailsPage from './BooksDetailsPage';
 class PrivatePages extends Component {
 
     handleToogleShowSidemenu = () => {
-        console.log('handleToogleShowSidemenu');
         this.props.dispatchToogleSideMenuVisibility();
     }
 
