@@ -36,7 +36,6 @@ app.use('/orders', ordersRoutes);
 
 app.use('/user', userRoutes);
 app.use('/books', bookRoutes);
-/* app.use('/books', bookRoutes); */
 
 
 

@@ -5,7 +5,7 @@ import * as ActionTypes from './constants';
 
 function booksReducer(state = INITIAL_STATE, action) {
 	switch (action.type) {
-		
+
 
 		case ActionTypes.LOAD_BOOKS_REQUEST:
 			return {
@@ -94,7 +94,7 @@ function booksReducer(state = INITIAL_STATE, action) {
 		case ActionTypes.UPDATE_BOOK_SUCCESS:
 			return {
 				...state,
-				isSavingBook: true,
+				isSavingBook: false,
 				editingBookMode: false,
 				error: null
 			}
@@ -103,6 +103,28 @@ function booksReducer(state = INITIAL_STATE, action) {
 			return {
 				...state,
 				isSavingBook: false,
+				error: { ...action.payload.error }
+			}
+
+
+		case ActionTypes.DELETE_BOOK_REQUEST:
+			return {
+				...state,
+				isDeletingBook: true,
+			}
+
+		case ActionTypes.DELETE_BOOK_SUCCESS:
+			return {
+				...state,
+				isDeletingBook: false,
+				detailsBook: {},
+				error: null
+			}
+
+		case ActionTypes.DELETE_BOOK_FAILURE:
+			return {
+				...state,
+				isDeletingBook: false,
 				error: { ...action.payload.error }
 			}
 

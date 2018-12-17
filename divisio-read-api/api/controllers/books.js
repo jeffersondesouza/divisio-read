@@ -91,9 +91,15 @@ exports.update = (req, res, next) => {
 
 exports.delete = (req, res, next) => {
 
-  BookDao.remove(req.body._id)
-    .then(() => res.status(200).json({ message: 'ok' }))
-    .catch(() => res.status(500).json({ message: 'Error whlile updating book', }));
+  BookDao.remove(req.params.id)
+    .then((result) => {
+     
+      return res.status(200).json({ message: 'Book deleted' })
+    })
+    .catch(error => {
+
+      return res.status(500).json({ message: 'Error whlile deleting', })
+    });
 
 }
 

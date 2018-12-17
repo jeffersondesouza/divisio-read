@@ -4,10 +4,15 @@ import SelectBookStatus from '../SelectBookStatus';
 
 const renderBook = ({ book, onDelete, onChangeStatus, onEditStatus }) => (
   <div>
-    <div>{book.title}</div>
-    <div>{book.author}</div>
-    <div>{book.pages}</div>
-    <div>{book.status}</div>
+    <div>
+      <div>{book.title}</div>
+      <div>{book.author}</div>
+      <div>{book.pages}</div>
+      <div>{book.status}</div>
+    </div>
+    <div>
+      <button type="botton" onClick={onDelete} >Delete</button>
+    </div>
     <div>
       <SelectBookStatus value={book.status} onChange={onChangeStatus} />
     </div>
@@ -19,7 +24,7 @@ const BookDetails = ({ book, isLoadingBook, onDelete, onChangeStatus, onEditStat
     {
       isLoadingBook
         ? <div>loading...</div>
-        : renderBook({ book, onChangeStatus })
+        : renderBook({ book, onChangeStatus, onDelete })
     }
   </div>
 );

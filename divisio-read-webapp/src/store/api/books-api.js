@@ -30,9 +30,21 @@ const updateBook = (book) => axios.patch(`books/${book._id}`, { ...book },
   .catch(err => console.log(err));
 
 
+const deleteBook = (id) => axios
+  .delete(`books/${id}`,
+    { headers: { Authorization: `Bearer ${getUserTokenFromHeader()}` } }
+  )
+  .then(res => {
+    return res;
+  })
+  .catch(err => console.log(err));
+
+
+
 export default {
   loadBooks,
   loadBook,
-  saveBook, 
-  updateBook
+  saveBook,
+  updateBook,
+  deleteBook
 }

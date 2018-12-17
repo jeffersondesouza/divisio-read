@@ -1,5 +1,6 @@
 import Actions from './action';
 import bookApi from '../../api/books-api';
+import { redirectTo } from '../../../utils/RouterRedirector';
 
 
 export default class BookMidleware {
@@ -18,8 +19,9 @@ export default class BookMidleware {
             dispatch(Actions.loadBookRequest(id));
             bookApi.loadBook(id)
                 .then(book => {
-                    dispatch(Actions.loadBookSuccess(book))})
-                .catch(error => dispatch(Actions.loadBookFailure( error)));
+                    dispatch(Actions.loadBookSuccess(book))
+                })
+                .catch(error => dispatch(Actions.loadBookFailure(error)));
         };
     }
 
@@ -55,11 +57,29 @@ export default class BookMidleware {
         }
     }
 
+
+    static deleteBook(id) {
+        console.log('id', id);
+        return dispatch => {
+            dispatch(Actions.deleteBookRequest(id));
+            return bookApi
+                .deleteBook(id)
+                .then(res => {
+                    dispatch(Actions.deleteBookSuccess());
+                    redirectTo('/books');
+                })
+                .catch(err => dispatch(Actions.deleteBookFailure(err)))
+        }
+    }
+
     static selectBookToUpdate(book) {
         return dispatch => {
             return dispatch(Actions.selectBookToUpdate(book));
         }
     }
+
+
+
 
 
 }

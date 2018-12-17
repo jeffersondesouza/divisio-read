@@ -26,16 +26,16 @@ class BookForm extends Component {
       <form onSubmit={this.handleSaveBook}>
     
         <div className="form-group">
-          <Input value={this.props.editingBook.title || ''} label="Título" onChange={title => this.setState({ title })} />
+          <Input label="Título" onChange={title => this.setState({ title })} />
         </div>
         <div className="form-group">
-          <Input value={this.props.editingBook.author || ''} label="Autor" onChange={author => this.setState({ author })} />
+          <Input label="Autor" onChange={author => this.setState({ author })} />
         </div>
         <div className="form-group">
-          <Input type="text" value={this.props.editingBook.pages || 0} label="Páginas" onChange={pages => this.setState({ pages })} />
+          <Input label="Páginas" onChange={pages => this.setState({ pages })} />
         </div>
         <div className="form-group">
-          <SelectBookStatus value={this.props.editingBook.status || 'fechado'} onChange={status => this.setState({ status })}/>
+          <SelectBookStatus value='fechado' onChange={status => this.setState({ status })}/>
         </div>
 
         <div className="form-actions">

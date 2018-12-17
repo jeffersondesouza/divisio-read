@@ -19,12 +19,12 @@ const save = ({ user, book }) => {
 
 
 const update = (bookId, req) => {
-  
+
   const updateOps = {
-    title:req.body.title ,
-    author:req.body.author,
-    status:req.body.status,
-    
+    title: req.body.title,
+    author: req.body.author,
+    status: req.body.status,
+
   };
   return Book.updateOne({ _id: bookId }, {
     $set: updateOps
@@ -32,7 +32,10 @@ const update = (bookId, req) => {
 }
 
 
-const remove = id => Book.remove({ _id: id }).exec();
+const remove = id => {
+  console.log('id', id);
+  return Book.remove({ _id: id }).exec()
+};
 
 module.exports = {
   listAll,

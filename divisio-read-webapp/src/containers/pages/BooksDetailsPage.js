@@ -23,6 +23,11 @@ class BooksDetailsPage extends Component {
         })
     }
 
+    hadleDelete = () => {
+        this.props.dispatchDeleteBook(this.props.detailsBook._id);
+        console.log('detailsBook', this.props.detailsBook._id);
+    }
+
     render() {
         const { detailsBook, isLoadingDetailsBook } = this.props;
         return (
@@ -31,6 +36,7 @@ class BooksDetailsPage extends Component {
                     book={detailsBook}
                     isLoadingBook={isLoadingDetailsBook}
                     onChangeStatus={this.handleChangeStatus}
+                    onDelete={this.hadleDelete}
                 />
             </div>
         );
@@ -45,6 +51,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     dispatchLoadBook: (id) => dispatch(BookMidleware.loadBookRequest(id)),
     dispatchUpdateBook: (book) => dispatch(BookMidleware.updateBook(book)),
+    dispatchDeleteBook: (id) => dispatch(BookMidleware.deleteBook(id)),
 });
 
 const BooksDetailsPageContainer = connect(mapStateToProps, mapDispatchToProps)(BooksDetailsPage);

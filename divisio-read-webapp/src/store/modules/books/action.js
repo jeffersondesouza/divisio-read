@@ -94,4 +94,25 @@ export default class BooksActions {
     }
 
 
+    static deleteBookRequest(id) {
+        return {
+            type: Action.DELETE_BOOK_REQUEST,
+            payload: { id }
+        }
+    }
+
+    static deleteBookSuccess() {
+        return {
+            type: Action.DELETE_BOOK_SUCCESS,
+        }
+    }
+
+    static deleteBookFailure(error) {
+        return {
+            type: Action.DELETE_BOOK_FAILURE,
+            payload: { error }
+        }
+    }
+
+
 }

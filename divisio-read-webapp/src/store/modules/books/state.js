@@ -5,5 +5,6 @@ export default {
     detailsBook: {},
     isLoadingBooks: false,
     isSavingBook: false,
-    isLoadingDetailsBook: false
+    isLoadingDetailsBook: false,
+    isDeletingBook: false,
 }

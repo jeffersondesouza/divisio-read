@@ -13,11 +13,8 @@ class BooksPage extends Component {
   }
 
   handleSaveBook = (book) => {
-    if (this.props.editingBookMode) {
-      this.props.dispatchSaveBook(book);
-      return;
-    }
-    this.props.dispatchUpdateBook(book);
+    this.props.dispatchSaveBook(book);
+    // this.props.dispatchUpdateBook(book);
   }
 
   handleSelectBook = book => this.props.dispatchSelectBookToUpdate(book);
@@ -28,7 +25,6 @@ class BooksPage extends Component {
       <div>
         <BookForm
           count={count}
-          editingBook={editingBook}
           onSaveBook={this.handleSaveBook}
         />
         <BooksList
