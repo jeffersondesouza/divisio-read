@@ -13,22 +13,40 @@ export default class BookMidleware {
         };
     }
 
-    static saveBook(book) {
+    static reloadBooksRequest() {
         return dispatch => {
-            dispatch(Actions.saveBookRequest(book));
-
-            return bookApi
-                .saveBook(book)
-                .then(res => dispatch(Actions.saveBookSuccess()))
-                .catch(err => dispatch(Actions.saveBookFailure(err)))
-
-        }
+            bookApi.loadBooks()
+                .then(books => dispatch(Actions.loadBooksSuccess(books)))
+                .catch(error => dispatch(Actions.loadBooksFailure({ error })));
+        };
     }
 
 
-    static selectBootToUpdate(book) {
+    static saveBook(book) {
         return dispatch => {
-            return dispatch(Actions.selectBootToUpdate(book));
+            dispatch(Actions.saveBookRequest(book));
+            return bookApi
+                .saveBook(book)
+                .then(res => dispatch(Actions.saveBookSuccess()))
+                .then(res => dispatch(this.reloadBooksRequest()))
+                .catch(err => dispatch(Actions.saveBookFailure(err)))
+        }
+    }
+
+    static updateBook(book) {
+        return dispatch => {
+            dispatch(Actions.updateBookRequest(book));
+            return bookApi
+                .saveBook(book)
+                .then(res => dispatch(Actions.updateBookSuccess()))
+                .then(res => dispatch(this.reloadBooksRequest()))
+                .catch(err => dispatch(Actions.updateBookFailure(err)))
+        }
+    }
+
+    static selectBookToUpdate(book) {
+        return dispatch => {
+            return dispatch(Actions.selectBookToUpdate(book));
         }
     }
 

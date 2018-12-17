@@ -39,6 +39,7 @@ function booksReducer(state = INITIAL_STATE, action) {
 			return {
 				...state,
 				isSavingBook: true,
+				editingBookMode: false,
 				error: null
 			}
 
@@ -54,8 +55,30 @@ function booksReducer(state = INITIAL_STATE, action) {
 			return {
 				...state,
 				editingBook: { ...action.payload.book },
+				editingBookMode: true,
 			}
 
+
+		case ActionTypes.UPDATE_BOOK_REQUEST:
+			return {
+				...state,
+				isSavingBook: true
+			}
+
+		case ActionTypes.UPDATE_BOOK_SUCCESS:
+			return {
+				...state,
+				isSavingBook: true,
+				editingBookMode: false,
+				error: null
+			}
+
+		case ActionTypes.UPDATE_BOOK_FAILURE:
+			return {
+				...state,
+				isSavingBook: false,
+				error: { ...action.payload.error }
+			}
 
 
 		default:

@@ -19,8 +19,17 @@ const saveBook = (book) => axios.post('books', { ...book },
   .then(res => res)
   .catch(err => console.log(err));
 
+
+const updateBook = (book) => axios.patch('books', { ...book },
+  { headers: { Authorization: `Bearer ${getUserTokenFromHeader()}` } }
+)
+  .then(res => res)
+  .catch(err => console.log(err));
+
+
 export default {
   loadBooks,
   loadBook,
-  saveBook
+  saveBook, 
+  updateBook
 }
