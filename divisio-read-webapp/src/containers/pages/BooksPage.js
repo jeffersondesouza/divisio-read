@@ -15,8 +15,6 @@ class BooksPage extends Component {
     handleSaveBook = (book) => this.props.dispatchSaveBook(book);
 
     render() {
-        console.log(this.props.books);
-        
         return (
             <div>
                 <BookForm onSaveBook={this.handleSaveBook} />

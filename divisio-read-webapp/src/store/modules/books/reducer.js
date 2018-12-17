@@ -50,6 +50,14 @@ function booksReducer(state = INITIAL_STATE, action) {
 			}
 
 
+		case ActionTypes.SELECT_BOOK_TO_UPDATE:
+			return {
+				...state,
+				editingBook: { ...action.payload.book },
+			}
+
+
+
 		default:
 			return state;
 	}

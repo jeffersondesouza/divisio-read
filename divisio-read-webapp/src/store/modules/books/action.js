@@ -42,4 +42,12 @@ export default class BooksActions {
         }
     }
 
+    static selectBootToUpdate(book) {
+        return {
+            type: Action.SELECT_BOOK_TO_UPDATE,
+            payload: { book }
+        }
+    }
+
+
 }

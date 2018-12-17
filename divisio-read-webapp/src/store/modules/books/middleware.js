@@ -25,4 +25,12 @@ export default class BookMidleware {
         }
     }
 
+
+    static selectBootToUpdate(book) {
+        return dispatch => {
+            return dispatch(Actions.selectBootToUpdate(book));
+        }
+    }
+
+
 }

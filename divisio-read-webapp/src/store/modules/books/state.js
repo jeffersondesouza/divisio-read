@@ -2,5 +2,6 @@ export default {
     error: null,
     books: [],
     isLoadingBooks: false,
-    isSavingBook: false
+    isSavingBook: false,
+    editingBook: {}
 }
