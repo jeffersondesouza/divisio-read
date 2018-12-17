@@ -55,22 +55,19 @@
     margin-top: .5rem;
     color: $secondary-color;
   }
-}
-
-/* in this case we are disrespecting the BEM to use the IPI of the CSS classes of lib ICONMOON */
-
-.icon-book {
-  color: $orange;
-}
-
-.icon-checkmark {
-  color: $primary-color-light;
-}
-
-.icon-eye {
-  color: $blue;
-}
-
-.icon-cross {
-  color: $red;
+  /* 
+    in this case we are disrespecting the BEM to use the IPI of the CSS classes of lib ICONMOON 
+  */
+  .icon-book {
+    color: $orange;
+  }
+  .icon-checkmark {
+    color: $primary-color-light;
+  }
+  .icon-eye {
+    color: $blue;
+  }
+  .icon-cross {
+    color: $red;
+  }
 }
