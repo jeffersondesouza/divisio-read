@@ -1,6 +1,6 @@
 export default {
     error: null,
     books: [],
-    isLoadingBooks: true
-
+    isLoadingBooks: false,
+    isSavingBook: false
 }

@@ -1,34 +1,54 @@
 import INITIAL_STATE from './state'
 
-import {
-	LOAD_BOOKS_REQUEST,
-	LOAD_BOOKS_SUCCESS,
-	LOAD_BOOKS_FAILURE
-} from './constants';
+import * as ActionTypes from './constants';
 
 
 function booksReducer(state = INITIAL_STATE, action) {
 	switch (action.type) {
-		case LOAD_BOOKS_REQUEST:
+
+		case ActionTypes.LOAD_BOOKS_REQUEST:
 			return {
 				...state,
 				books: [],
 				isLoadingBooks: true
 			}
-		case LOAD_BOOKS_SUCCESS:
-		
+
+		case ActionTypes.LOAD_BOOKS_SUCCESS:
 			return {
 				...state,
 				books: [...action.payload.books],
 				isLoadingBooks: true,
 				error: null
 			}
-		case LOAD_BOOKS_FAILURE:
+
+		case ActionTypes.LOAD_BOOKS_FAILURE:
 			return {
 				...state,
 				isLoadingBooks: false,
 				error: { ...action.payload.error }
 			}
+
+
+		case ActionTypes.SAVE_BOOKS_REQUEST:
+			return {
+				...state,
+				isSavingBook: true
+			}
+
+		case ActionTypes.SAVE_BOOKS_SUCCESS:
+			return {
+				...state,
+				isSavingBook: true,
+				error: null
+			}
+
+		case ActionTypes.SAVE_BOOKS_FAILURE:
+			return {
+				...state,
+				isSavingBook: false,
+				error: { ...action.payload.error }
+			}
+
 
 		default:
 			return state;

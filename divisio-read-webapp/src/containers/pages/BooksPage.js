@@ -11,9 +11,7 @@ class BooksPage extends Component {
         this.props.dispatchLoadBooks();
     }
 
-    handleSaveBook = (book) => {
-        console.log('book', book);
-    }
+    handleSaveBook = (book) => this.props.dispatchSaveBook(book);
 
     render() {
         return (
@@ -31,6 +29,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     dispatchLoadBooks: () => dispatch(BookMidleware.loadBooksRequest()),
+    dispatchSaveBook: (book) => dispatch(BookMidleware.saveBook(book)),
 });
 
 
