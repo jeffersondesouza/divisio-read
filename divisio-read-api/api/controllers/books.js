@@ -9,7 +9,7 @@ exports.getAll = (req, res, next) => {
   const token = req.headers.authorization.split(/\s/)[1];
   const decoded = jwt.verify(token, process.env.JWT_KEY);
   req.userData = decoded;
-  
+
   UserDao.findById(decoded._id)
     .then(user => {
 
@@ -30,6 +30,34 @@ exports.getAll = (req, res, next) => {
     })
     .catch(err => res.status(500).json({ message: 'Error whlile saving' }));
 }
+
+
+exports.getById = (req, res, next) => {
+
+  const token = req.headers.authorization.split(/\s/)[1];
+  const decoded = jwt.verify(token, process.env.JWT_KEY);
+  req.userData = decoded;
+
+  UserDao.findById(decoded._id)
+    .then(user => {
+
+      if (!user) {
+        return res.status(500).json({ message: 'cant find user' });
+      }
+
+      BookDao
+        .findById(req.params.id)
+        .then(docs => {
+          return res.status(200)
+            .json({
+              book: docs
+            })
+        });
+
+    })
+    .catch(err => res.status(500).json({ message: 'Error whlile saving' }));
+}
+
 
 exports.save = (req, res, next) => {
   const token = req.headers.authorization.split(/\s/)[1];
