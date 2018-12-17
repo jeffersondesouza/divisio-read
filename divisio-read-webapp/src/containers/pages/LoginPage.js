@@ -10,8 +10,6 @@ import LoginForm from '../../components/forms/LoginForm/LoginForm';
 class LoginPage extends Component {
 
     handleLogin = () => {
-        console.log('handleLogin');
-        
         this.props.dispatchLogin({ email: 'joao@email.com', password: '123' });
     }
 

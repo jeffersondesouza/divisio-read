@@ -8,11 +8,10 @@ class BookForm extends Component {
 
   constructor() {
     super();
-    this.titulo = 'ola';
     this.state = {
-      titulo: '',
-      paginas: null,
-      autor: '',
+      title: '',
+      pages: null,
+      author: '',
       status:'fechado'
     }
   }
@@ -25,17 +24,15 @@ class BookForm extends Component {
   render() {
     return (
       <form onSubmit={this.handleSaveBook}>
-      {
-        this.state.status
-      }
+    
         <div className="form-group">
-          <Input label="Título" onChange={titulo => this.setState({ titulo })} />
+          <Input label="Título" onChange={title => this.setState({ title })} />
         </div>
         <div className="form-group">
-          <Input label="Autor" onChange={autor => this.setState({ autor })} />
+          <Input label="Autor" onChange={author => this.setState({ author })} />
         </div>
         <div className="form-group">
-          <Input type="number" label="Páginas" onChange={paginas => this.setState({ paginas })} />
+          <Input type="number" label="Páginas" onChange={pages => this.setState({ pages })} />
         </div>
         <div className="form-group">
           <SelectBookStatus value={this.state.status} onChange={status => this.setState({ status })}/>

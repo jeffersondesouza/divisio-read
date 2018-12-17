@@ -6,8 +6,6 @@ import { getUserToken } from './LocalStorageManager';
 export const redirectToWelcomePage = () => {
   // browserHistory.push(`/books`);
   history.push(`/books`);
-  console.log(history);
-  
 
 };
 
