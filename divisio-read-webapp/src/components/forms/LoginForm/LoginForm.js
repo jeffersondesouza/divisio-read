@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Input from '../../ui/Input';
 
 class LoginForm extends Component {
 
@@ -12,19 +13,13 @@ class LoginForm extends Component {
         return (
             <form onSubmit={this.handleLogin}>
                 <div className="form-group">
-                    <label>
-                        <input type="email" />
-                        Email
-                </label>
+                    <Input label="Email" />
                 </div>
                 <div className="form-group">
-                    <label>
-                        <input type="password" />
-                        Senha
-                </label>
+                    <Input label="Senha" type="password" />
                 </div>
                 <div className="form-actions">
-                    <button>Login</button>
+                    <button className="btn">Login</button>
                 </div>
             </form>
         );
