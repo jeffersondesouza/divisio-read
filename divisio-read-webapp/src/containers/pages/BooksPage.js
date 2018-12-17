@@ -3,9 +3,7 @@ import { connect } from 'react-redux';
 
 import BookMidleware from '../../store/modules/books/middleware';
 
-import Header from '../../components/layout/Header';
-import SideMenu from '../../components/ui/SideMenu';
-import UiMidleware from '../../store/modules/ui/middleware';
+import BookForm from '../../components/forms/BookForm'
 
 class BooksPage extends Component {
 
@@ -13,22 +11,14 @@ class BooksPage extends Component {
         this.props.dispatchLoadBooks();
     }
 
-
-    handleToogleShowSidemenu = () => {
-        this.props.dispatchToogleSideMenuVisibility();
+    handleSaveBook = (book) => {
+        console.log('book', book);
     }
 
-
     render() {
-        console.log(this.props);
-
-
         return (
             <div>
-                <SideMenu
-                    showSidbarMenu={this.props.showSidbarMenu}
-                    onToogleShowSidemenu={this.handleToogleShowSidemenu} />
-                <Header onToogleShowSidemenu={this.handleToogleShowSidemenu} />
+                <BookForm onSaveBook={this.handleSaveBook} />
             </div>
         );
     }
@@ -37,12 +27,10 @@ class BooksPage extends Component {
 
 const mapStateToProps = state => ({
     ...state.book,
-    showSidbarMenu: state.ui.showSidbarMenu
 });
 
 const mapDispatchToProps = dispatch => ({
     dispatchLoadBooks: () => dispatch(BookMidleware.loadBooksRequest()),
-    dispatchToogleSideMenuVisibility: () => dispatch(UiMidleware.toogleSideMenuVisibility()),
 });
 
 

@@ -1,11 +1,30 @@
+import history from './history';
+
 import { browserHistory } from 'react-router';
-import Enums from "./Enums";
 import { getUserToken } from './LocalStorageManager';
 
-export const redirectToWelcomePage = () => browserHistory.push(`/${Enums.URI_WHITE_LIST.BOOKS}`);;
+export const redirectToWelcomePage = () => {
+  // browserHistory.push(`/books`);
+  history.push(`/books`);
+  console.log(history);
+  
+
+};
+
+export const redirectTo = (url = '/') => {
+  // browserHistory.push(url);
+  history.push(url);
+};
 
 export const verifyAuthetication = (nextState, replace) => {
-  if (getUserToken() === null) {
-    replace('/');
+
+  const currentToken = getUserToken();
+
+  /* TODO - Generate a more sofisticated async token check to verifay the token state at server   */
+  if (currentToken === null) {
+    return replace('/');
   }
+
+
+
 }

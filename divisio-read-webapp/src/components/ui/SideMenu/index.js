@@ -23,16 +23,22 @@ class SideMenu extends Component {
 
     render() {
         const classes = (this.props.showSidbarMenu)
-        ? 'side-menu'
-        : 'side-menu side-menu--hidden';
-        
+            ? 'side-menu'
+            : 'side-menu side-menu--hidden';
+
 
         return (
             <div ref={this.setWrapperRef} className={classes} >
                 <header>
                     perfil
                 </header>
-                <div>Logout</div>
+                <div>
+
+                    <footer>
+                        <button onClick={this.props.onLogout} type="button">Log Out</button>
+                    </footer>
+
+                </div>
             </div>
         );
     }

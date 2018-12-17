@@ -1,7 +1,7 @@
 import Actions from './actions';
 import authApi from '../../api/auth-api';
-import {setUserToken } from '../../../utils/LocalStorageManager';
-import { redirectToWelcomePage } from '../../../utils/RouterRedirector';
+import { removeUserToken, setUserToken } from '../../../utils/LocalStorageManager';
+import { redirectToWelcomePage, redirectTo } from '../../../utils/RouterRedirector';
 
 export default class AuthMidleware {
 
@@ -12,9 +12,19 @@ export default class AuthMidleware {
                 .then(data => {
                     setUserToken(data.token);
                     redirectToWelcomePage();
-                    return dispatch(Actions.loginSuccess({ token:data.token }));
+                    return dispatch(Actions.loginSuccess({ token: data.token }));
                 })
                 .catch(error => dispatch(Actions.loginFailure({ error })));
+        };
+    }
+
+    static logoutRequest() {
+
+        return dispatch => {
+            removeUserToken();
+            redirectTo();
+
+            return dispatch(Actions.logoutRequest());
         };
     }
 

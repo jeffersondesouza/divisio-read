@@ -22,4 +22,11 @@ export default class AuthActions {
         }
     }
 
+    
+    static logoutRequest () {
+        return {
+            type: ActionsTypes.LOGOUT_REQUEST,
+        }
+    }
+
 }

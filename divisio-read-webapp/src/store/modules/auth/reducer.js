@@ -27,6 +27,12 @@ function authReducer(state = INITIAL_STATE, action) {
 				error: { ...action.payload.error }
 			}
 
+		case ActionsTypes.LOGIN_SUCCESS:
+			return {
+				...state,
+				token: null,
+			}
+
 
 		default:
 			return state;
