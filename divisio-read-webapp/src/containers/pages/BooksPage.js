@@ -24,8 +24,6 @@ class BooksPage extends Component {
 
   render() {
     const { editingBook, books, count } = this.props;
-    console.log('props', this.props);
-
     return (
       <div>
         <BookForm

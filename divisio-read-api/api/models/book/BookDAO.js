@@ -18,14 +18,28 @@ const save = ({ user, book }) => {
 };
 
 
-/* 
-const update;
-const remove; */
+const update = (bookId, req) => {
+  
+  const updateOps = {
+    title:req.body.title ,
+    author:req.body.author,
+    status:req.body.status,
+    
+  };
+  return Book.updateOne({ _id: bookId }, {
+    $set: updateOps
+  });
+}
+
+
+const remove = id => Book.remove({ _id: id }).exec();
+
+
 
 module.exports = {
   listAll,
   findById,
   save,
-  /*   update,
-    remove */
+  update,
+  remove
 };

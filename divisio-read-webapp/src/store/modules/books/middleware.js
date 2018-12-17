@@ -17,7 +17,8 @@ export default class BookMidleware {
         return dispatch => {
             dispatch(Actions.loadBookRequest(id));
             bookApi.loadBook(id)
-                .then(book => dispatch(Actions.loadBookSuccess(book)))
+                .then(book => {
+                    dispatch(Actions.loadBookSuccess(book))})
                 .catch(error => dispatch(Actions.loadBookFailure( error)));
         };
     }
@@ -47,7 +48,7 @@ export default class BookMidleware {
         return dispatch => {
             dispatch(Actions.updateBookRequest(book));
             return bookApi
-                .saveBook(book)
+                .updateBook(book)
                 .then(res => dispatch(Actions.updateBookSuccess()))
                 .then(res => dispatch(this.reloadBooksRequest()))
                 .catch(err => dispatch(Actions.updateBookFailure(err)))

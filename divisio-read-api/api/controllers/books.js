@@ -79,3 +79,12 @@ exports.save = (req, res, next) => {
     .catch(err => res.status(500).json({ message: 'Error whlile saving' }));
 
 }
+
+
+exports.update = (req, res, next) => {
+
+  BookDao.update(req.body._id, req)
+    .then(() => res.status(200).json({ message: 'ok' }))
+    .catch(() => res.status(500).json({ message: 'Error whlile updating book', }));
+
+}

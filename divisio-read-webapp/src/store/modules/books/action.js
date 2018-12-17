@@ -25,7 +25,7 @@ export default class BooksActions {
 
     static loadBookRequest(id) {
         return {
-            type: Action.LOAD_BOOKS_REQUEST,
+            type: Action.LOAD_BOOK_REQUEST,
             payload: { id }
         }
     }

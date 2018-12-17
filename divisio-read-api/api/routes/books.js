@@ -13,7 +13,11 @@ const BookController = require('./../controllers/books');
 
 
 router.get("/", BookController.getAll);
+
 router.get("/:id", BookController.getById);
+
+router.patch("/:id", BookController.update);
+
 router.post("/", BookController.save);
 
 
