@@ -14,11 +14,9 @@ class SignUpPage extends Component {
 
 
 const mapStateToProps = state => ({
-    showSidbarMenu: state.ui.showSidbarMenu
 });
 
 const mapDispatchToProps = dispatch => ({
-    dispatchToogleSidemenu: () => dispatch(UiMidleware.toogleSideMenuVisibility())
 });
 
 

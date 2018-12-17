@@ -14,7 +14,6 @@ class BooksPage extends Component {
 
   handleSaveBook = (book) => {
     this.props.dispatchSaveBook(book);
-    // this.props.dispatchUpdateBook(book);
   }
 
   handleSelectBook = book => this.props.dispatchSelectBookToUpdate(book);

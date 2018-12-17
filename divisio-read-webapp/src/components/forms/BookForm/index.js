@@ -39,7 +39,7 @@ class BookForm extends Component {
         </div>
 
         <div className="form-actions">
-          <button>Login</button>
+          <button>Salvar</button>
         </div>
       </form>
     );

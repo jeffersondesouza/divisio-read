@@ -15,6 +15,7 @@ import BooksDetailsPage from './BooksDetailsPage';
 class PrivatePages extends Component {
 
     handleToogleShowSidemenu = () => {
+        console.log('handleToogleShowSidemenu');
         this.props.dispatchToogleSideMenuVisibility();
     }
 
@@ -23,6 +24,8 @@ class PrivatePages extends Component {
     }
 
     render() {
+        console.log(this.props.showSidbarMenu);
+        
         return (
             <div>
                 <SideMenu
