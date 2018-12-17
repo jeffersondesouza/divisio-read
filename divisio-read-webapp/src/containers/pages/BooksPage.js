@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import BookMidleware from '../../store/modules/books/middleware';
 
 import BookForm from '../../components/forms/BookForm'
+import BooksList from '../../components/lists/BooksList';
 
 class BooksPage extends Component {
 
@@ -14,9 +15,12 @@ class BooksPage extends Component {
     handleSaveBook = (book) => this.props.dispatchSaveBook(book);
 
     render() {
+        console.log(this.props.books);
+        
         return (
             <div>
                 <BookForm onSaveBook={this.handleSaveBook} />
+                <BooksList books={this.props.books} />
             </div>
         );
     }
