@@ -13,6 +13,16 @@ export default class BookMidleware {
         };
     }
 
+    static loadBookRequest(id) {
+        return dispatch => {
+            dispatch(Actions.loadBookRequest(id));
+            bookApi.loadBook(id)
+                .then(book => dispatch(Actions.loadBookSuccess(book)))
+                .catch(error => dispatch(Actions.loadBookFailure( error)));
+        };
+    }
+
+
     static reloadBooksRequest() {
         return dispatch => {
             bookApi.loadBooks()

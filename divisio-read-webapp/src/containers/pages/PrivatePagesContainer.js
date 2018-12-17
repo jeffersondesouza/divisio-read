@@ -28,15 +28,13 @@ class PrivatePages extends Component {
                 <SideMenu
                     showSidbarMenu={this.props.showSidbarMenu}
                     onLogout={this.handleLogout}
-                    onToogleShowSidemenu={this.handleToogleShowSidemenu} 
+                    onToogleShowSidemenu={this.handleToogleShowSidemenu}
                 />
                 <Header onToogleShowSidemenu={this.handleToogleShowSidemenu} />
-                <Router>
-                    <Switch>
-                        <Route path="/" component={BooksPage} />
-                        <Route path="/books/:id" component={BooksDetailsPage} />
-                    </Switch>
-                </Router>
+                <Switch>
+                    <Route path="/books" component={BooksPage} exact />
+                    <Route path="/books/:id" component={BooksDetailsPage} exact />
+                </Switch>
             </div>
         );
     }

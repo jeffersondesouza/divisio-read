@@ -29,6 +29,30 @@ function booksReducer(state = INITIAL_STATE, action) {
 			}
 
 
+
+
+		case ActionTypes.LOAD_BOOK_REQUEST:
+			return {
+				...state,
+				detailsBook: {},
+				isLoadingDetailsBook: true
+			}
+
+		case ActionTypes.LOAD_BOOKS_SUCCESS:
+			return {
+				...state,
+				error: null,
+				detailsBook: { ...action.payload.book },
+				isLoadingDetailsBook: false
+			}
+
+		case ActionTypes.LOAD_BOOKS_FAILURE:
+			return {
+				...state,
+				isLoadingDetailsBook: false,
+				error: { ...action.payload.error }
+			}
+
 		case ActionTypes.SAVE_BOOKS_REQUEST:
 			return {
 				...state,

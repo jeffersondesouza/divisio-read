@@ -1,19 +1,30 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import UiMidleware from '../../store/modules/ui/middleware';
+import BookMidleware from '../../store/modules/books/middleware';
+
+import BookDetailsForm from '../../components/forms/BookDetailsForm';
 
 class BooksDetailsPage extends Component {
 
-    handleToogleShowSidemenu = () => {
-        this.props.dispatchToogleSidemenu();
+    componentDidMount() {
+        const { id } = this.props.match.params
+        console.log('handle', id);
+        this.props.dispatchLoadBook(id);
     }
+
+    handleSaveBook = (book) => this.props.dispatchUpdateBook(book);
+
 
 
     render() {
+        const { editingBook } = this.props;
         return (
             <div>
-                BooksDetailsPage
+                <BookDetailsForm
+                    editingBook={editingBook}
+                    onSaveBook={this.handleSaveBook}
+                />
             </div>
         );
     }
@@ -21,13 +32,13 @@ class BooksDetailsPage extends Component {
 
 
 const mapStateToProps = state => ({
-    showSidbarMenu: state.ui.showSidbarMenu
+    ...state.book,
 });
 
 const mapDispatchToProps = dispatch => ({
-    dispatchToogleSidemenu: () => dispatch(UiMidleware.toogleSideMenuVisibility())
+    dispatchUpdateBook: (book) => dispatch(BookMidleware.updateBook(book)),
+    dispatchLoadBook: (id) => dispatch(BookMidleware.loadBookRequest(id))
 });
-
 
 const BooksDetailsPageContainer = connect(mapStateToProps, mapDispatchToProps)(BooksDetailsPage);
 

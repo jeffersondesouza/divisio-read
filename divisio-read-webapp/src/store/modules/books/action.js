@@ -22,6 +22,29 @@ export default class BooksActions {
         }
     }
 
+
+    static loadBookRequest(id) {
+        return {
+            type: Action.LOAD_BOOKS_REQUEST,
+            payload: { id }
+        }
+    }
+
+    static loadBookSuccess(book) {
+        return {
+            type: Action.LOAD_BOOK_SUCCESS,
+            payload: { book }
+        }
+    }
+
+    static loadBookFailure(error) {
+        return {
+            type: Action.LOAD_BOOK_FAILURE,
+            payload: { error }
+        }
+    }
+
+
     static saveBookRequest(book) {
         return {
             type: Action.SAVE_BOOKS_REQUEST,

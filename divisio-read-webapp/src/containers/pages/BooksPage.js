@@ -35,7 +35,6 @@ class BooksPage extends Component {
         />
         <BooksList
           books={books}
-          onSelectBook={this.handleSelectBook}
         />
       </div>
     );

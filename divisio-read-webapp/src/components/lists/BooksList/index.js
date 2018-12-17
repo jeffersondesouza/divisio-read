@@ -1,9 +1,12 @@
+import { Link } from 'react-router-dom'
 import React from 'react';
 import Books from './Book';
 
 const renderBook = ({ book, onClick }) => (
   <li key={book._id}>
-    <Books book={book} onClick={() => onClick(book)} />
+    <Link to={`books/${book._id}`}>
+      <Books book={book} />
+    </Link>
   </li>
 );
 
