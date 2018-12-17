@@ -88,3 +88,12 @@ exports.update = (req, res, next) => {
     .catch(() => res.status(500).json({ message: 'Error whlile updating book', }));
 
 }
+
+exports.delete = (req, res, next) => {
+
+  BookDao.remove(req.body._id)
+    .then(() => res.status(200).json({ message: 'ok' }))
+    .catch(() => res.status(500).json({ message: 'Error whlile updating book', }));
+
+}
+

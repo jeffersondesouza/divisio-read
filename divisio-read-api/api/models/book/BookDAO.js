@@ -34,8 +34,6 @@ const update = (bookId, req) => {
 
 const remove = id => Book.remove({ _id: id }).exec();
 
-
-
 module.exports = {
   listAll,
   findById,

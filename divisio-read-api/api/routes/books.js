@@ -11,6 +11,7 @@ const BookController = require('./../controllers/books');
 
 // router.delete("/:bookId", checkAuth, BookController.deleteOrder);
 
+router.post("/", BookController.save);
 
 router.get("/", BookController.getAll);
 
@@ -18,7 +19,8 @@ router.get("/:id", BookController.getById);
 
 router.patch("/:id", BookController.update);
 
-router.post("/", BookController.save);
+router.delete("/:id", BookController.delete);
+
 
 
 module.exports = router;
