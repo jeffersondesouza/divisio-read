@@ -11,7 +11,7 @@ function booksReducer(state = INITIAL_STATE, action) {
 			return {
 				...state,
 				books: [],
-				isLoadingBooks: true
+				isLoadingBooks: true,
 			}
 
 		case ActionTypes.LOAD_BOOKS_SUCCESS:
@@ -42,6 +42,7 @@ function booksReducer(state = INITIAL_STATE, action) {
 		case ActionTypes.LOAD_BOOK_SUCCESS:
 			return {
 				...state,
+				bookMessage:'',
 				error: null,
 				detailsBook: { ...action.payload.book },
 				isLoadingDetailsBook: false
@@ -88,6 +89,7 @@ function booksReducer(state = INITIAL_STATE, action) {
 			return {
 				...state,
 				isSavingBook: true,
+				bookMessage:'',
 				detailsBook: { ...action.payload.book },
 			}
 
@@ -96,6 +98,7 @@ function booksReducer(state = INITIAL_STATE, action) {
 				...state,
 				isSavingBook: false,
 				editingBookMode: false,
+				bookMessage:'Status de Leitura alterado com sucesso!',
 				error: null
 			}
 
@@ -103,6 +106,7 @@ function booksReducer(state = INITIAL_STATE, action) {
 			return {
 				...state,
 				isSavingBook: false,
+				bookMessage:'Ops, não conseguimos altrar o status da litura',
 				error: { ...action.payload.error }
 			}
 

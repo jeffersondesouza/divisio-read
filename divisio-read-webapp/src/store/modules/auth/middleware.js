@@ -28,4 +28,20 @@ export default class AuthMidleware {
         };
     }
 
+
+
+
+
+    static singUpRequest({ email, password, confirmPassword }) {
+        return dispatch => {
+
+            dispatch(Actions.singUpRequest());
+
+            authApi.signup({ email, password, confirmPassword })
+                .then(() => dispatch(Actions.singUpSuccess()))
+                .then(() => dispatch(AuthMidleware.loginRequest({ email, password })))
+                .catch(error => dispatch(Actions.singUpFailure({ error })));
+        };
+    }
+
 }

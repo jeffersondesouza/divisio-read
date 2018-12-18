@@ -52,14 +52,12 @@ export default class BookMidleware {
             return bookApi
                 .updateBook(book)
                 .then(res => dispatch(Actions.updateBookSuccess()))
-                .then(res => dispatch(this.reloadBooksRequest()))
                 .catch(err => dispatch(Actions.updateBookFailure(err)))
         }
     }
 
 
     static deleteBook(id) {
-        console.log('id', id);
         return dispatch => {
             dispatch(Actions.deleteBookRequest(id));
             return bookApi

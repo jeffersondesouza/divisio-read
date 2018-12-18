@@ -26,4 +26,18 @@ export default class UIAction {
         }
     }
 
+
+    static showmHeaderIconSandwish() {
+        return {
+            type: ActionsTypes.SHOW_MAIN_SANDWISH_MENU
+        }
+    }
+
+
+    static showHeaderIconBackArrow() {
+        return {
+            type: ActionsTypes.SHOW_MAIN_RETURN_BUTTON
+        }
+    }
+
 }

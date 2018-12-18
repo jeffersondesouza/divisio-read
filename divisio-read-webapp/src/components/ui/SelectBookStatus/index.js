@@ -4,13 +4,21 @@ import './styles/select-book-status.scss';
 
 import BookStatusIcon from '../BookStatusIcon';
 
-const SelectBookStatus = ({ value, onChange }) => (
+const SelectBookStatus = ({showLabel, value, onChange, onDelete, hideDeleteOption }) => (
   <div className="select-book-status">
-    <BookStatusIcon status="closed" onChange={e=> onChange('fechado')} type='book' />
-    <BookStatusIcon status="readig" onChange={e=> onChange('lendo')} type='eye' />
-    <BookStatusIcon status="finished" onChange={e=> onChange('finalizado')} type='checkmark' />
-    <BookStatusIcon status="delete" onChange={e=> onChange('deletar')} type='cross' />  
+    <BookStatusIcon showLabel={showLabel} status="closed" onChange={e => onChange('closed')} type='book' />
+    <BookStatusIcon showLabel={showLabel} status="reading" onChange={e => onChange('reading')} type='eye' />
+    <BookStatusIcon showLabel={showLabel} status="finished" onChange={e => onChange('finished')} type='checkmark' />
   </div>
 );
 
 export default SelectBookStatus;
+
+/* {
+  hideDeleteOption
+    ? ''
+    :<div onClick={onDelete}>
+      <BookStatusIcon  showLabel={showLabel} status="delete" type='cross' />
+    </div> 
+}
+ */

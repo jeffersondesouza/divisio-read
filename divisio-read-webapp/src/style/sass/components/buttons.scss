@@ -23,6 +23,15 @@
   &:active {
     background-color: rgba($primary-color-dark, .8);
   }
+  &--delete {
+    background-color: $red;
+    &:hover {
+      background-color: $red;
+    }
+    &:active {
+      background-color: rgba($red, .8);
+    }
+  }
 }
 
 .btn-float {

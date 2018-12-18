@@ -10,14 +10,16 @@ function authReducer(state = INITIAL_STATE, action) {
 		case ActionsTypes.LOGIN_REQUEST:
 			return {
 				...state,
-				isLoggingIn: true
+				isLoggingIn: true,
+				token: null,
 			}
 
 		case ActionsTypes.LOGIN_SUCCESS:
 			return {
 				...state,
 				token: action.payload.token,
-				isLoggingIn: false
+				isLoggingIn: false,
+				error: null,
 			}
 
 		case ActionsTypes.LOGIN_FAILURE:
@@ -27,12 +29,27 @@ function authReducer(state = INITIAL_STATE, action) {
 				error: { ...action.payload.error }
 			}
 
-		case ActionsTypes.LOGIN_SUCCESS:
+
+
+
+			case ActionsTypes.SINGUP_REQUEST:
 			return {
 				...state,
-				token: null,
+				isSigningUp: true,
 			}
 
+		case ActionsTypes.SINGUP_SUCCESS:
+			return {
+				...state,
+				isSigningUp: false,
+			}
+
+		case ActionsTypes.SINGUP_FAILURE:
+			return {
+				...state,
+				isSigningUp: false,
+				error: { ...action.payload.error }
+			}
 
 		default:
 			return state;
