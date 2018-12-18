@@ -27,14 +27,14 @@ export default class UIAction {
     }
 
 
-    static showmMainSandwishMenu() {
+    static showmHeaderIconSandwish() {
         return {
             type: ActionsTypes.SHOW_MAIN_SANDWISH_MENU
         }
     }
 
 
-    static showMainReturnHeaderButton() {
+    static showHeaderIconBackArrow() {
         return {
             type: ActionsTypes.SHOW_MAIN_RETURN_BUTTON
         }

@@ -11,7 +11,7 @@ function booksReducer(state = INITIAL_STATE, action) {
 			return {
 				...state,
 				books: [],
-				isLoadingBooks: true
+				isLoadingBooks: true,
 			}
 
 		case ActionTypes.LOAD_BOOKS_SUCCESS:

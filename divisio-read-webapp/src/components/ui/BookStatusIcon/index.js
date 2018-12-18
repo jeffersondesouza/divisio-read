@@ -4,37 +4,45 @@ import './style/book-status-icon.scss';
 
 
 const statusIconType = (status) => {
+  console.log('status', status);
   const statusType = {
-    fechado: 'book',
-    lendo: 'eye',
-    finalizado: 'checkmark',
     closed: 'book',
-    readig: 'eye',
+    reading: 'eye',
     finished: 'checkmark',
-    delete:'cross'
+    delete: 'cross'
   }
-
   return statusType[status] || 'book';
-
 };
 
+const typeLabel = (type) => {
+  const statusType = {
+    book: 'Fechado',
+    eye: 'Lendo',
+    checkmark: 'finalizado',
+  }
+  return statusType[type] || 'book';
+};
+
+
 const renderLabel = (showLabel, type) => (showLabel
-  ? <span className="input__label" className="book-status-icon__label">{type}</span>
+  ? <span className="input__label" className="book-status-icon__label">
+    {typeLabel(type)}
+  </span>
   : ''
 );
 
 const BookStatusIcon = ({ status, onChange, type, showLabel }) => {
 
   const statusType = statusIconType(status);
-  
+
   return (
     <label className="book-status-icon">
-        <input
-          name="status"
-          type="radio"
-          className="book-status-icon__checkbox"
-          onChange={onChange}
-        />
+      <input
+        name="status"
+        type="radio"
+        className="book-status-icon__checkbox"
+        onChange={onChange}
+      />
       <div className={`book-status-icon__btn book-status-icon__btn--${statusType || 'book'}`}>
         <IcoMoon icon={statusType} className="book-status-icon__icon" />
       </div>

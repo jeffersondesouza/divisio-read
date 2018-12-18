@@ -15,49 +15,55 @@ import BooksDetailsPage from './BooksDetailsPage';
 class PrivatePages extends Component {
 
 
-    componentWillMount() {
-        this.props.dispatchHideSideMenu();
-    }
+  componentWillMount() {
+    this.props.dispatchHideSideMenu();
+  }
 
-    handleShowSidemenu = () => {
-        this.props.dispatchShowSideMenu();
-    }
+  handleShowSidemenu = () => {
+    this.props.dispatchShowSideMenu();
+  }
 
-    handleHideSidemenu = () => {
-        this.props.dispatchHideSideMenu();
-    }
+  handleHideSidemenu = () => {
+    this.props.dispatchHideSideMenu();
+  }
 
-    handleLogout = () => {
-        this.props.dispatchLogout();
-    }
+  handleLogout = () => {
+    this.props.dispatchLogout();
+  }
 
-    render() {
-        return (
-            <div>
-                <SideMenu
-                    showSidbarMenu={this.props.showSidbarMenu}
-                    onLogout={this.handleLogout}
-                    onHideSideMenu={this.handleHideSidemenu}
-                />
-                <Header onToogleShowSidemenu={this.handleShowSidemenu} />
-                <Switch>
-                    <Route path="/books" component={BooksPage} exact />
-                    <Route path="/books/:id" component={BooksDetailsPage} exact />
-                </Switch>
-            </div>
-        );
-    }
+  render() {
+    const { showMainMenuReturn, showMainMenuSandwish, showSidbarMenu } = this.props;
+
+    return (
+      <div>
+        <SideMenu
+          showSidbarMenu={showSidbarMenu}
+          onLogout={this.handleLogout}
+          onHideSideMenu={this.handleHideSidemenu}
+        />
+        <Header
+          showMainMenuReturn={showMainMenuReturn}
+          showMainMenuSandwish={showMainMenuSandwish}
+          onToogleShowSidemenu={this.handleShowSidemenu}
+        />
+        <Switch>
+          <Route path="/books" component={BooksPage} exact />
+          <Route path="/books/:id" component={BooksDetailsPage} exact />
+        </Switch>
+      </div>
+    );
+  }
 }
 
 
 const mapStateToProps = state => ({
-    showSidbarMenu: state.ui.showSidbarMenu
+  ...state.ui,
 });
 
 const mapDispatchToProps = dispatch => ({
-    dispatchLogout: () => dispatch(AuthMidleware.logoutRequest()),
-    dispatchShowSideMenu: () => dispatch(UiMidleware.showSideMenu()),
-    dispatchHideSideMenu: () => dispatch(UiMidleware.hideSideMenu()),
+  dispatchLogout: () => dispatch(AuthMidleware.logoutRequest()),
+  dispatchShowSideMenu: () => dispatch(UiMidleware.showSideMenu()),
+  dispatchHideSideMenu: () => dispatch(UiMidleware.hideSideMenu()),
 });
 
 

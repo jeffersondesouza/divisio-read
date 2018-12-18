@@ -13,13 +13,23 @@ const renderBook = ({ book, onClick }) => (
   </li>
 );
 
-const BooksList = ({ books, onSelectBook }) => (
+const BooksList = ({ books, isLoadingBooks, onSelectBook }) => (
   <div className="books">
     {
-      books.length
-        ? <ul>{books.map(book => renderBook({ book, onClick: onSelectBook }))}</ul>
-        : <div>Nenhum livro cadastrado</div>
+      (isLoadingBooks)
+        ? <p>Loading...</p>
+        : (
+          <div>
+            {
+              (books.length)
+                ? <ul>{books.map(book => renderBook({ book, onClick: onSelectBook }))}</ul>
+                : <div>Nenhum livro cadastrado</div>
+            }
+          </div>
+        )
+
     }
+
   </div>
 );
 
