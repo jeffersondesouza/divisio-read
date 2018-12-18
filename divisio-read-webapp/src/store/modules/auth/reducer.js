@@ -10,14 +10,16 @@ function authReducer(state = INITIAL_STATE, action) {
 		case ActionsTypes.LOGIN_REQUEST:
 			return {
 				...state,
-				isLoggingIn: true
+				isLoggingIn: true,
+				token: null,
 			}
 
 		case ActionsTypes.LOGIN_SUCCESS:
 			return {
 				...state,
 				token: action.payload.token,
-				isLoggingIn: false
+				isLoggingIn: false,
+				error: null,
 			}
 
 		case ActionsTypes.LOGIN_FAILURE:
@@ -26,13 +28,6 @@ function authReducer(state = INITIAL_STATE, action) {
 				isLoggingIn: false,
 				error: { ...action.payload.error }
 			}
-
-		case ActionsTypes.LOGIN_SUCCESS:
-			return {
-				...state,
-				token: null,
-			}
-
 
 		default:
 			return state;

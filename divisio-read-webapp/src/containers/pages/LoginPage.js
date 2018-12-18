@@ -11,11 +11,13 @@ const logo = '../src/assets/logo.png';
 
 class LoginPage extends Component {
 
-    handleLogin = () => {
-        this.props.dispatchLogin({ email: 'joao@email.com', password: '123' });
+    handleLogin = ({ email, password }) => {
+        this.props.dispatchLogin({ email, password });
     }
 
     render() {
+        const {auth} = this.props;
+
         return (
             <div className="login-page">
                 <header className="login-page__header">
@@ -26,7 +28,7 @@ class LoginPage extends Component {
                     <h3 className="login-page__sub-title">Gerencie e mantenha sua leitura em dias</h3>
                 </header>
                 <div className="login-page__login-wrapper">
-                    <LoginForm onLoggin={this.handleLogin} />
+                    <LoginForm error={auth.error}  onLoggin={this.handleLogin} />
                 </div>
 
             </div>
@@ -36,7 +38,7 @@ class LoginPage extends Component {
 
 
 const mapStateToProps = state => ({
-    ui: { ...state.ui }
+   auth: {...state.auth}
 });
 
 const mapDispatchToProps = dispatch => ({

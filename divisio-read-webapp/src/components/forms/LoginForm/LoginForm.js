@@ -7,19 +7,38 @@ import Input from '../../ui/Input';
 
 class LoginForm extends Component {
 
+    constructor() {
+        super();
+        this.state = {
+            email: '',
+            password: '',
+        }
+    }
+
     handleLogin = (event) => {
         event.preventDefault();
-        this.props.onLoggin();
+        this.props.onLoggin({
+            email: this.state.email,
+            password: this.state.password,
+        });
     }
 
     render() {
+        const { error } = this.props;
+
         return (
             <form className="login-form" onSubmit={this.handleLogin}>
+                <p className="login-form__error">{
+                    (error)
+                        ? 'A senha ou email estão incorretos'
+                        : ''
+                }
+                </p>
                 <div className="login-form__form-group">
-                    <Input label="Email" />
+                    <Input label="Email" onChange={email => this.setState({ email })} />
                 </div>
                 <div className="login-form__form-group">
-                    <Input label="Senha" type="password" />
+                    <Input label="Senha" type="password" onChange={password => this.setState({ password })} />
                 </div>
                 <div className="form-actions">
                     <button className="btn">Login</button>
@@ -33,7 +52,8 @@ class LoginForm extends Component {
 
 
 LoginForm.propTypes = {
-    onLoggin: PropTypes.func
+    onLoggin: PropTypes.func,
+    error: PropTypes.string,
 }
 
 

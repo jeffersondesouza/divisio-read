@@ -1,5 +1,18 @@
+@import '../../../../style/sass/abstracts/variables';
+@import '../../../../style/sass/abstracts/mixins';
 .login-form {
+  @include respond(big-phone) {
+    width: 40rem;
+    margin: 0 auto;
+  }
+
   &__form-group {
+    margin-bottom: 4rem;
+  }
+  &__error {
+    min-height: 2rem;
+    text-align: center;
+    color: $red;
     margin-bottom: 4rem;
   }
 }
