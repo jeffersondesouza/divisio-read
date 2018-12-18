@@ -12,6 +12,7 @@
 .side-menu {
   animation: moveFromLeft .3s ease-out;
   background-color: $white;
+  border-right: 1px solid rgba($secondary-color, .2);
   position: fixed;
   min-height: 100vh;
   height: 100vh;
@@ -23,12 +24,30 @@
   transform: translateY(5rem);
   transform: translateX(-100rem);
   &--show {
-    background-color: red;
     transform: translateX(0rem);
   }
   &--hidden {
     display: none;
-    background-color: pink;
     transform: translateX(-100rem);
+  }
+  &__header {
+    margin-bottom: 5rem;
+  }
+  &__title {
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+  }
+  &__text {
+    text-align: justify;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+  }
+  &__footer {
+    border-top: 1px solid rgba($secondary-color, .2);
+    padding-top: 3rem;
+    display: flex;
+    justify-content: center;
   }
 }
