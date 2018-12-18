@@ -58,7 +58,6 @@ router.post('/', checkAuth, upload.single('productImage'), (req, res, next) => {
 
         })
         .catch(error => {
-            console.log('error', error);
             res.status(500).json({
                 message: 'Could mot create the product',
                 error
@@ -84,7 +83,6 @@ router.get('/:productId', (req, res, next) => {
             }
         })
         .catch(error => {
-            console.log('error', error);
             res.status(500).json({
                 message: 'Product not found',
                 error
@@ -103,7 +101,6 @@ router.patch('/:productId', checkAuth, (req, res, next) => {
             });
         })
         .catch(error => {
-            console.log('error', error);
             res.status(500).json({
                 message: 'Product not updated',
                 error
@@ -123,7 +120,6 @@ router.delete('/:productId', checkAuth, (req, res, next) => {
 
         })
         .catch(error => {
-            console.log('error', error);
             res.status(500).json({
                 message: 'Could not remove the product',
                 error

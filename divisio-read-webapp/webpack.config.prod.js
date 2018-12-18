@@ -5,7 +5,7 @@ const babiliPlugin = require('babili-webpack-plugin');
 
 const plugins = [];
 const API_URL = JSON.stringify('https://api.punkapi.com/v2/beers');
-
+const APP_USER_TOKEN_KEY_PARAM = 'userToken';
 
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   hash: true,
@@ -25,6 +25,7 @@ const CommonChunksPlugin = new webpack.optimize.CommonsChunkPlugin({ name: 'vend
 
 plugins.push(HtmlWebpackPluginConfig)
 plugins.push(new webpack.DefinePlugin({ API_URL }));
+plugins.push(new webpack.DefinePlugin({APP_USER_TOKEN_KEY_PARAM}));
 
 
 plugins.push(new babiliPlugin());

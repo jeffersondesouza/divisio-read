@@ -1,19 +1,38 @@
 import INITIAL_STATE from './state'
 
-import {
-	TOOGLE_SIDE_MENU
-} from './constants';
+import * as actionsTypes from './constants';
 
 
 function uiReducer(state = INITIAL_STATE, action) {
+console.log('action', action);
 
 	switch (action.type) {
-		case TOOGLE_SIDE_MENU:
+
+		case actionsTypes.HIDE_SIDE_MENU:
 			return {
 				...state,
-				showSidbarMenu: !state.showSidbarMenu
-
+				showSidbarMenu: false
 			}
+
+		case actionsTypes.SHOW_SIDE_MENU:
+			return {
+				...state,
+				showSidbarMenu: true
+			}
+
+
+		case actionsTypes.HIDE_BOOK_CREATION_FORM:
+			return {
+				...state,
+				showBookCreationForm: false
+			}
+
+		case actionsTypes.SHOW_BOOK_CREATION_FORM:
+			return {
+				...state,
+				showBookCreationForm: true
+			}
+
 		default:
 			return state;
 	}

@@ -4,7 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const axios =  require('axios');
 
 const plugins = [];
-const API_URL = JSON.stringify('https://api.punkapi.com/v2/beers');
+const API_URL = JSON.stringify('http://localhost:3000');
+const APP_USER_TOKEN_KEY_PARAM = 'userToken';
 
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   hash: true,
@@ -23,6 +24,9 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 plugins.push(HtmlWebpackPluginConfig)
 // we defined API_URL as a env variable, so if the base url changes, we don't need to modify the api call in every file
 plugins.push(new webpack.DefinePlugin({API_URL}));
+plugins.push(new webpack.DefinePlugin({APP_USER_TOKEN_KEY_PARAM}));
+
+
 
 module.exports = {
   entry: './src/index.js',
@@ -69,7 +73,11 @@ module.exports = {
       {
         test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'url-loader?limit=10000&mimetype=image/svg+xml'
-      }
+      },
+
+      { test: /\.(eot|woff|woff2|ttf|svg|png|jpe?g|gif)(\?\S*)?$/
+        , loader: 'url?limit=100000&name=[name].[ext]'
+        }
     ]
   },
   devServer: {

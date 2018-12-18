@@ -8,7 +8,7 @@ const User = require("../models/user/user");
 
 
 router.post("/signup", (req, res, next) => {
-  
+
   User.find({ email: req.body.email })
     .exec()
     .then(user => {
@@ -32,13 +32,11 @@ router.post("/signup", (req, res, next) => {
 
             user.save()
               .then(result => {
-                console.log(result);
                 res.status(201).json({
                   message: "User created"
                 });
               })
               .catch(err => {
-                console.log(err);
                 res.status(500).json({
                   error: err
                 });
@@ -49,7 +47,7 @@ router.post("/signup", (req, res, next) => {
       }
     });
 });
-
+/* 
 router.delete("/:userId", (req, res, next) => {
   User.remove({ _id: req.params.userId })
     .exec()
@@ -59,14 +57,13 @@ router.delete("/:userId", (req, res, next) => {
       });
     })
     .catch(err => {
-      console.log(err);
       res.status(500).json({
         error: err
       });
     });
 });
 
-
+ */
 router.post('/login', (req, res, next) => {
 
   User.find({
@@ -74,7 +71,6 @@ router.post('/login', (req, res, next) => {
   })
     .exec()
     .then(usersFound => {
-      console.log('usersFound', usersFound);
 
       if (usersFound && usersFound.length < 1) {
         return res.status(401).json({

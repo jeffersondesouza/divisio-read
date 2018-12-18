@@ -1,3 +1,4 @@
 export default {
-    showSidbarMenu: false
+    showSidbarMenu: false,
+    showBookCreationForm: false
 }
