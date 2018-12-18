@@ -16,7 +16,7 @@ class LoginPage extends Component {
     }
 
     render() {
-        const {auth} = this.props;
+        const { auth } = this.props;
 
         return (
             <div className="login-page">
@@ -24,11 +24,13 @@ class LoginPage extends Component {
                     <figure className="login-page__logo-fig">
                         <img className="login-page__logo-img" src={logo}></img>
                     </figure>
-                    <h2 className="login-page__title">Divisio Read</h2>
-                    <h3 className="login-page__sub-title">Gerencie e mantenha sua leitura em dias</h3>
+                    <div className="login-page__headind">
+                        <h2 className="login-page__title">Divisio Read</h2>
+                        <h3 className="login-page__sub-title">Gerencie e mantenha sua leitura em dias</h3>
+                    </div>
                 </header>
                 <div className="login-page__login-wrapper">
-                    <LoginForm error={auth.error}  onLoggin={this.handleLogin} />
+                    <LoginForm error={auth.error} onLoggin={this.handleLogin} />
                 </div>
 
             </div>
@@ -38,7 +40,7 @@ class LoginPage extends Component {
 
 
 const mapStateToProps = state => ({
-   auth: {...state.auth}
+    auth: { ...state.auth }
 });
 
 const mapDispatchToProps = dispatch => ({
