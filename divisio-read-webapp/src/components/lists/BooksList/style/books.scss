@@ -1,12 +1,20 @@
+@import '../../../../style/sass/abstracts/mixins';
 @import '../../../../style/sass/abstracts/variables';
 .books {
   min-height: 80vh;
-  border: 1px solid rgba($secondary-color-light, .1);
-  border-right: none;
-  border-radius: 1.5rem 0 0 1.5rem;
   padding: 1rem 1rem 1rem 2rem;
   margin-left: 2rem;
   margin-top: 2rem;
+  margin-left: 2rem;
+  border: 1px solid rgba($secondary-color-light, .3);
+  border-right: none;
+  border-radius: 1.5rem 0 0 1.5rem;
+  margin-right: 0;
+  @include respond(phone) {
+    border: 1px solid rgba($secondary-color-light, .3);
+    margin-right: 2rem;
+    border-radius: 1.5rem;
+  }
   a {
     &,
     &:link,
@@ -21,7 +29,7 @@
   display: flex;
   padding-bottom: 1.5rem;
   padding-top: 2rem;
-  border-bottom: 1px solid rgba($secondary-color-light, .1);
+  border-bottom: 1px solid rgba($secondary-color-light, .3);
   transition: all .3s;
   &:hover {
     border-bottom: 1px solid rgba($secondary-color-light, .5);
