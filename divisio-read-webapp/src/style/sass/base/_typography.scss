@@ -7,3 +7,15 @@ body {
   color: $secondary-color-dark;
 }
 
+a {
+  &:link,
+  &:visited {
+    color: $blue;
+    text-decoration: none;
+    font-weight: 700,
+  }
+  &:hover {
+    font-weight: 700;
+    text-decoration: underline;
+  }
+}

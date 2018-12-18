@@ -33,7 +33,6 @@ const update = (bookId, req) => {
 
 
 const remove = id => {
-  console.log('id', id);
   return Book.remove({ _id: id }).exec()
 };
 

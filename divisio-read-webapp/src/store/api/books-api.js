@@ -24,7 +24,6 @@ const updateBook = (book) => axios.patch(`books/${book._id}`, { ...book },
   { headers: { Authorization: `Bearer ${getUserTokenFromHeader()}` } }
 )
   .then(res => {
-    console.log('res', res);
     return res;
   })
   .catch(err => console.log(err));

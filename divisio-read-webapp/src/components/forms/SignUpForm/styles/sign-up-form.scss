@@ -1,6 +1,6 @@
 @import '../../../../style/sass/abstracts/variables';
 @import '../../../../style/sass/abstracts/mixins';
-.login-form {
+.sign-up-form {
   @include respond(big-phone) {
     width: 40rem;
     margin: 0 auto;

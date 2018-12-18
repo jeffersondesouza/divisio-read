@@ -18,6 +18,14 @@ export default class UiMidleware {
         return dispatch => dispatch(UiActions.hideSideMenu());
     }
 
-    
+    static showmHeaderIconSandwish() {
+        return dispatch => dispatch(UiActions.showmHeaderIconSandwish());
+    }
+
+    static showHeaderIconBackArrow() {
+        return dispatch => dispatch(UiActions.showHeaderIconBackArrow());
+    }
+
+
 
 }

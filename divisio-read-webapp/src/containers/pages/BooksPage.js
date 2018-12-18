@@ -11,6 +11,7 @@ class BooksPage extends Component {
 
   componentDidMount() {
     this.props.dispatchLoadBooks();
+    this.props.dispatchShowmHeaderIconSandwish();
   }
 
   handleSaveBook = (book) => {
@@ -34,7 +35,7 @@ class BooksPage extends Component {
   );
 
   render() {
-    const { books, showBookCreationForm } = this.props;
+    const { books,isLoadingBooks, showBookCreationForm } = this.props;
     return (
       <div>
         <BookForm
@@ -42,7 +43,7 @@ class BooksPage extends Component {
           onSaveBook={this.handleSaveBook}
           onHideForm={this.handleHideCreationBookForm}
         />
-        <BooksList books={books} />
+        <BooksList isLoadingBooks={isLoadingBooks} books={books} />
 
         {
           !showBookCreationForm
@@ -68,6 +69,7 @@ const mapDispatchToProps = dispatch => ({
 
   dispatchShowCreationBookForm: () => dispatch(UiMidleware.showBookCreationForm()),
   dispatchHideCreationBookForm: () => dispatch(UiMidleware.hideCreationBookForm()),
+  dispatchShowmHeaderIconSandwish: () => dispatch(UiMidleware.showmHeaderIconSandwish()),
 
 });
 

@@ -4,7 +4,6 @@ import * as actionsTypes from './constants';
 
 
 function uiReducer(state = INITIAL_STATE, action) {
-console.log('action', action);
 
 	switch (action.type) {
 
@@ -32,6 +31,31 @@ console.log('action', action);
 				...state,
 				showBookCreationForm: true
 			}
+
+
+
+
+
+
+		case actionsTypes.SHOW_MAIN_SANDWISH_MENU:
+			return {
+				...state,
+				showMainMenuSandwish: true,
+				showMainMenuReturn: false
+
+			}
+
+
+		case actionsTypes.SHOW_MAIN_RETURN_BUTTON:
+			return {
+				...state,
+				showMainMenuReturn: true,
+				showMainMenuSandwish: false,
+
+			}
+
+
+
 
 		default:
 			return state;

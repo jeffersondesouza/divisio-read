@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import BookMidleware from '../../store/modules/books/middleware';
+import UiMidleware from '../../store/modules/ui/middleware';
 
-import BookDetailsForm from '../../components/forms/BookDetailsForm';
-import BookDetails from '../../components/ui/BookDetails/BookDetails';
+import BookDetails from '../../components/ui/BookDetails';
 
 
 class BooksDetailsPage extends Component {
@@ -12,27 +12,35 @@ class BooksDetailsPage extends Component {
     componentDidMount() {
         const { id } = this.props.match.params
         this.props.dispatchLoadBook(id);
+        this.props.dispatchShowHeaderIconBackArrow();
     }
 
     handleSaveBook = (book) => this.props.dispatchUpdateBook(book);
 
     handleChangeStatus = (status) => {
+
         this.props.dispatchUpdateBook({
             ...this.props.detailsBook,
             status
-        })
+        });
+
     }
 
     hadleDelete = () => {
-        this.props.dispatchDeleteBook(this.props.detailsBook._id);
+        const configAction = confirm(`Tem centerza que deseja excluir o livro: ${this.props.detailsBook.title}`)
+
+        if (configAction) {
+            this.props.dispatchDeleteBook(this.props.detailsBook._id);
+        }
     }
 
     render() {
-        const { detailsBook, isLoadingDetailsBook } = this.props;
+        const { detailsBook, isLoadingDetailsBook, bookMessage } = this.props;
         return (
             <div>
                 <BookDetails
                     book={detailsBook}
+                    bookMessage={bookMessage}
                     isLoadingBook={isLoadingDetailsBook}
                     onChangeStatus={this.handleChangeStatus}
                     onDelete={this.hadleDelete}
@@ -51,6 +59,10 @@ const mapDispatchToProps = dispatch => ({
     dispatchLoadBook: (id) => dispatch(BookMidleware.loadBookRequest(id)),
     dispatchUpdateBook: (book) => dispatch(BookMidleware.updateBook(book)),
     dispatchDeleteBook: (id) => dispatch(BookMidleware.deleteBook(id)),
+
+
+    dispatchShowHeaderIconBackArrow: () => dispatch(UiMidleware.showHeaderIconBackArrow()),
+
 });
 
 const BooksDetailsPageContainer = connect(mapStateToProps, mapDispatchToProps)(BooksDetailsPage);

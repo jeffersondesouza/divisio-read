@@ -1,4 +1,6 @@
 export default {
     showSidbarMenu: false,
-    showBookCreationForm: false
+    showBookCreationForm: false,
+    headerIconSandwish: true,
+    headerIconBackArrow: true,
 }
