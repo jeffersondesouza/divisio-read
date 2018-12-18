@@ -1,0 +1,33 @@
+@import '../../../../style/sass/abstracts/variables';
+.book-details-header {
+  background: $primary-color;
+  color: $white;
+  margin-bottom: 2rem;
+  padding: 2rem 1.5rem 2rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &__info {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  &__title {
+    font-size: 2rem;
+  }
+  &__author {
+    color: $secondary-color-light;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+  &__pages {
+    font-size: 1.5rem;
+  }
+  &__status{
+    background: $white;
+    padding: .25rem;
+    border-radius: 100rem;
+
+  }
+}

@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 
 import BookMidleware from '../../store/modules/books/middleware';
 
-import BookDetailsForm from '../../components/forms/BookDetailsForm';
-import BookDetails from '../../components/ui/BookDetails/BookDetails';
+import BookDetails from '../../components/ui/BookDetails';
 
 
 class BooksDetailsPage extends Component {
@@ -17,14 +16,20 @@ class BooksDetailsPage extends Component {
     handleSaveBook = (book) => this.props.dispatchUpdateBook(book);
 
     handleChangeStatus = (status) => {
-        this.props.dispatchUpdateBook({
-            ...this.props.detailsBook,
-            status
-        })
+        if (status !== 'delete') {
+            this.props.dispatchUpdateBook({
+                ...this.props.detailsBook,
+                status
+            });
+        }
     }
 
     hadleDelete = () => {
-        this.props.dispatchDeleteBook(this.props.detailsBook._id);
+        const configAction = confirm(`Tem centerza que deseja excluir o livro: ${this.props.detailsBook.title}`)
+
+        if (configAction) {
+            this.props.dispatchDeleteBook(this.props.detailsBook._id);
+        }
     }
 
     render() {

@@ -1,0 +1,14 @@
+@import '../../../../style/sass/abstracts/variables';
+.book-details {
+  height: 100vh;
+  &__status-call-action {
+    text-align: center;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
+  &__delete {
+    margin: 4rem 2rem 2rem 2rem;
+    display: flex;
+    justify-content: center;
+  }
+}

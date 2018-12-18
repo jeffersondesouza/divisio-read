@@ -26,9 +26,8 @@ class BookForm extends Component {
 
   render() {
     const bookFormClasses = (this.props.showBookCreationForm)
-    ? 'book-form'
-    : 'book-form book-form--hidden';
-    console.log('bookFormClasses', bookFormClasses);
+      ? 'book-form'
+      : 'book-form book-form--hidden';
 
     return (
       <div className={bookFormClasses}>
@@ -49,7 +48,10 @@ class BookForm extends Component {
               <Input label="Páginas" onChange={pages => this.setState({ pages })} />
             </div>
             <div className="form-group">
-              <SelectBookStatus value='fechado' onChange={status => this.setState({ status })} />
+              <SelectBookStatus
+                hideDeleteOption={true} 
+                onChange={status => this.setState({ status })} 
+                />
             </div>
             <div className="form-actions">
               <button className="btn">Salvar</button>
@@ -66,7 +68,9 @@ class BookForm extends Component {
 
 
 BookForm.propTypes = {
-  onLoggin: PropTypes.func
+  onSaveBook: PropTypes.func,
+  onHideForm: PropTypes.func,
+  showBookCreationForm: PropTypes.bool
 }
 
 
