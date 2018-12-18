@@ -1,0 +1,60 @@
+@import '../../../../style/sass/abstracts/variables';
+.books {
+  min-height: 80vh;
+  border: 1px solid rgba($secondary-color-light, .1);
+  border-right: none;
+  border-radius: 1.5rem 0 0 1.5rem;
+  padding: 1rem 1rem 1rem 2rem;
+  margin-left: 2rem;
+  margin-top: 2rem;
+  a {
+    &,
+    &:link,
+    &:visited {
+      text-decoration: none;
+      color: $secondary-color-dark;
+    }
+  }
+}
+
+.book {
+  display: flex;
+  padding-bottom: 1.5rem;
+  padding-top: 2rem;
+  border-bottom: 1px solid rgba($secondary-color-light, .1);
+  transition: all .3s;
+  &:hover {
+    border-bottom: 1px solid rgba($secondary-color-light, .5);
+  }
+  &:hover &__title {
+    font-size: 1.7rem;
+    font-weight: 900;
+  }
+  &,
+  &:link,
+  &:visited {
+    text-decoration: none;
+  }
+  &__info {
+    flex: 1;
+    line-height: 1.5;
+  }
+  &__title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    transition: all .3s;
+  }
+  &__author {
+    font-size: 1.5rem;
+    color: $secondary-color-light;
+    margin-bottom: .2rem;
+  }
+  &__pages {
+    font-weight: 400;
+    font-size: 1.6rem;
+  }
+  &__status {
+    display: flex;
+    align-items: center;
+  }
+}

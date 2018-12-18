@@ -34,3 +34,7 @@ ul {
   background-color: $secondary-color-dark;
   color: $white;
 }
+
+body::-webkit-scrollbar {
+  width: 0;
+}

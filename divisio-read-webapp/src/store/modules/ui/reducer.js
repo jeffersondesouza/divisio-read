@@ -4,16 +4,35 @@ import * as actionsTypes from './constants';
 
 
 function uiReducer(state = INITIAL_STATE, action) {
+console.log('action', action);
 
 	switch (action.type) {
-		case actionsTypes.TOOGLE_SIDE_MENU:
-		console.log('TOOGLE: ',{action});
-		
+
+		case actionsTypes.HIDE_SIDE_MENU:
 			return {
 				...state,
-				 showSidbarMenu: !state.showSidbarMenu
-
+				showSidbarMenu: false
 			}
+
+		case actionsTypes.SHOW_SIDE_MENU:
+			return {
+				...state,
+				showSidbarMenu: true
+			}
+
+
+		case actionsTypes.HIDE_BOOK_CREATION_FORM:
+			return {
+				...state,
+				showBookCreationForm: false
+			}
+
+		case actionsTypes.SHOW_BOOK_CREATION_FORM:
+			return {
+				...state,
+				showBookCreationForm: true
+			}
+
 		default:
 			return state;
 	}

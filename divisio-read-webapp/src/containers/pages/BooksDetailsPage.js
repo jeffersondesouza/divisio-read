@@ -25,7 +25,6 @@ class BooksDetailsPage extends Component {
 
     hadleDelete = () => {
         this.props.dispatchDeleteBook(this.props.detailsBook._id);
-        console.log('detailsBook', this.props.detailsBook._id);
     }
 
     render() {

@@ -13,7 +13,7 @@
     width: 4rem;
     height: 4rem;
     position: relative;
-    z-index: 100;
+    transition: all .3s;
     &::before {
       transition: all .5s;
     }
@@ -25,7 +25,6 @@
         content: '';
         position: absolute;
         background-color: rgba($secondary-color-light, .1);
-        z-index: -100;
         border-radius: 100rem;
         width: calc(100% + 1.5rem);
         height: calc(100% + 1.5rem);
@@ -55,6 +54,11 @@
     margin-top: .5rem;
     color: $secondary-color;
   }
+  &__checkbox:checked ~ &__btn{
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+
   /* 
     in this case we are disrespecting the BEM to use the IPI of the CSS classes of lib ICONMOON 
   */

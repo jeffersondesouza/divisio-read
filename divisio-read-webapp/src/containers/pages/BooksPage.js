@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import BookMidleware from '../../store/modules/books/middleware';
+import UiMidleware from '../../store/modules/ui/middleware';
 
 import BookForm from '../../components/forms/BookForm'
 import BooksList from '../../components/lists/BooksList';
@@ -13,22 +14,41 @@ class BooksPage extends Component {
   }
 
   handleSaveBook = (book) => {
-    this.props.dispatchSaveBook(book);
+    this.props.dispatchSaveBook(book)
+      .then(() => this.props.dispatchHideCreationBookForm());
   }
 
-  handleSelectBook = book => this.props.dispatchSelectBookToUpdate(book);
+
+  handleShowCreationBookForm = () => this.props.dispatchShowCreationBookForm();
+
+  handleHideCreationBookForm = () => this.props.dispatchHideCreationBookForm();
+
+
+  rendeCreateBookForm = showElement => (showElement
+    ? <BookForm
+      showBookCreationForm={showBookCreationForm}
+      onSaveBook={this.handleSaveBook}
+      onHideForm={this.handleHideCreationBookForm}
+    />
+    : ''
+  );
 
   render() {
-    const { editingBook, books, count } = this.props;
+    const { books, showBookCreationForm } = this.props;
     return (
       <div>
         <BookForm
-          count={count}
+          showBookCreationForm={showBookCreationForm}
           onSaveBook={this.handleSaveBook}
+          onHideForm={this.handleHideCreationBookForm}
         />
-        <BooksList
-          books={books}
-        />
+        <BooksList books={books} />
+
+        {
+          !showBookCreationForm
+            ? <button type="button" className="btn-float" onClick={this.handleShowCreationBookForm}>+</button>
+            : ''
+        }
       </div>
     );
   }
@@ -37,6 +57,7 @@ class BooksPage extends Component {
 
 const mapStateToProps = state => ({
   ...state.book,
+  showBookCreationForm: state.ui.showBookCreationForm
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -44,6 +65,10 @@ const mapDispatchToProps = dispatch => ({
   dispatchSaveBook: (book) => dispatch(BookMidleware.saveBook(book)),
   dispatchUpdateBook: (book) => dispatch(BookMidleware.updateBook(book)),
   dispatchSelectBookToUpdate: (book) => dispatch(BookMidleware.selectBookToUpdate(book)),
+
+  dispatchShowCreationBookForm: () => dispatch(UiMidleware.showBookCreationForm()),
+  dispatchHideCreationBookForm: () => dispatch(UiMidleware.hideCreationBookForm()),
+
 });
 
 
