@@ -14,8 +14,17 @@ import BooksDetailsPage from './BooksDetailsPage';
 
 class PrivatePages extends Component {
 
-    handleToogleShowSidemenu = () => {
-        this.props.dispatchToogleSideMenuVisibility();
+
+    componentWillMount() {
+        this.props.dispatchHideSideMenu();
+    }
+
+    handleShowSidemenu = () => {
+        this.props.dispatchShowSideMenu();
+    }
+
+    handleHideSidemenu = () => {
+        this.props.dispatchHideSideMenu();
     }
 
     handleLogout = () => {
@@ -23,16 +32,14 @@ class PrivatePages extends Component {
     }
 
     render() {
-        console.log(this.props.showSidbarMenu);
-        
         return (
             <div>
                 <SideMenu
                     showSidbarMenu={this.props.showSidbarMenu}
                     onLogout={this.handleLogout}
-                    onToogleShowSidemenu={this.handleToogleShowSidemenu}
+                    onHideSideMenu={this.handleHideSidemenu}
                 />
-                <Header onToogleShowSidemenu={this.handleToogleShowSidemenu} />
+                <Header onToogleShowSidemenu={this.handleShowSidemenu} />
                 <Switch>
                     <Route path="/books" component={BooksPage} exact />
                     <Route path="/books/:id" component={BooksDetailsPage} exact />
@@ -49,7 +56,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     dispatchLogout: () => dispatch(AuthMidleware.logoutRequest()),
-    dispatchToogleSideMenuVisibility: () => dispatch(UiMidleware.toogleSideMenuVisibility()),
+    dispatchShowSideMenu: () => dispatch(UiMidleware.showSideMenu()),
+    dispatchHideSideMenu: () => dispatch(UiMidleware.hideSideMenu()),
 });
 
 
