@@ -4,7 +4,6 @@ import './style/book-status-icon.scss';
 
 
 const statusIconType = (status) => {
-  console.log('status', status);
   const statusType = {
     closed: 'book',
     reading: 'eye',

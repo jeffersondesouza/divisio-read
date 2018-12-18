@@ -36,7 +36,6 @@ const update = (productId, req) => {
 
 
 const remove = id => {
-    console.log('id', id);
     return Product.remove({ _id: id }).exec()
 };
 

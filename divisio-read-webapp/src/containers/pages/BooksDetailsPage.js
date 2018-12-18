@@ -18,7 +18,6 @@ class BooksDetailsPage extends Component {
     handleSaveBook = (book) => this.props.dispatchUpdateBook(book);
 
     handleChangeStatus = (status) => {
-    console.log('status', status);
 
         this.props.dispatchUpdateBook({
             ...this.props.detailsBook,

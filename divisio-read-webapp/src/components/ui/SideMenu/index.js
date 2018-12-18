@@ -12,7 +12,6 @@ class SideMenu extends Component {
   handleClickOutside = (event) => {
 
     if (this.wrapperRef && !this.wrapperRef.contains(event.target) && this.props.showSidbarMenu) {
-      console.log('event', event);
       this.props.onHideSideMenu();
     }
 
