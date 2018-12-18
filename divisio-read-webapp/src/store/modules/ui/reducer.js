@@ -4,7 +4,6 @@ import * as actionsTypes from './constants';
 
 
 function uiReducer(state = INITIAL_STATE, action) {
-	console.log('action', action);
 
 	switch (action.type) {
 
