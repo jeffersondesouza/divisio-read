@@ -5,11 +5,12 @@ import './styles/book-details.scss';
 import SelectBookStatus from '../SelectBookStatus';
 import BookDetailsHeader from './BookDetailsHeader';
 
-const renderBook = ({ book, onDelete, onChangeStatus, onEditStatus }) => (
+const renderBook = ({ book, onDelete, onChangeStatus, onEditStatus, bookMessage }) => (
   <div className="book-details">
     <BookDetailsHeader book={book} />
     <div className="book-details__status">
       <p className="book-details__status-call-action">Choose a Reading Status</p>
+      <p className="book-details__status-msg">{bookMessage}</p>
       <SelectBookStatus
         showLabel={true}
         value={book.status}
@@ -23,12 +24,12 @@ const renderBook = ({ book, onDelete, onChangeStatus, onEditStatus }) => (
   </div>
 );
 
-const BookDetails = ({ book, isLoadingBook, onDelete, onChangeStatus, onEditStatus }) => (
+const BookDetails = ({ book, bookMessage, isLoadingBook, onDelete, onChangeStatus, onEditStatus }) => (
   <div>
     {
       isLoadingBook
         ? <div>loading...</div>
-        : renderBook({ book, onChangeStatus, onDelete })
+        : renderBook({ book, onChangeStatus, onDelete, bookMessage })
     }
   </div>
 );

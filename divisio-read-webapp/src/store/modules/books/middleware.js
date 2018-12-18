@@ -52,9 +52,6 @@ export default class BookMidleware {
             return bookApi
                 .updateBook(book)
                 .then(res => dispatch(Actions.updateBookSuccess()))
-                .then(res => {
-                    return redirectTo('/books');
-                })
                 .catch(err => dispatch(Actions.updateBookFailure(err)))
         }
     }

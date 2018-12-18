@@ -36,11 +36,12 @@ class BooksDetailsPage extends Component {
     }
 
     render() {
-        const { detailsBook, isLoadingDetailsBook } = this.props;
+        const { detailsBook, isLoadingDetailsBook, bookMessage } = this.props;
         return (
             <div>
                 <BookDetails
                     book={detailsBook}
+                    bookMessage={bookMessage}
                     isLoadingBook={isLoadingDetailsBook}
                     onChangeStatus={this.handleChangeStatus}
                     onDelete={this.hadleDelete}

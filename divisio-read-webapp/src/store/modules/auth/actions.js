@@ -29,4 +29,25 @@ export default class AuthActions {
         }
     }
 
+
+
+    static singUpRequest() {
+        return {
+            type: ActionsTypes.SINGUP_REQUEST
+        }
+    }
+
+    static singUpSuccess() {
+        return {
+            type: ActionsTypes.SINGUP_SUCCESS,
+        }
+    }
+
+    static singUpFailure(error) {
+        return {
+            type: ActionsTypes.SINGUP_FAILURE,
+            payload: { error }
+        }
+    }
+
 }

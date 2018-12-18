@@ -11,7 +11,9 @@ const Header = ({ onToogleShowSidemenu, showMainMenuReturn, showMainMenuSandwish
     <ToogleMenu
       showMainMenuReturn={showMainMenuReturn}
       showMainMenuSandwish={showMainMenuSandwish}
-      onClick={() => onToogleShowSidemenu()} />
+      onClick={() => onToogleShowSidemenu()}
+    />
+    <h1 className="header__title">Divisio Read</h1>
 
     <HeaderLogo imgUrl="../src/assets/logo.png" />
   </header>

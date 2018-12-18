@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import './styles/login-form.scss';
 
@@ -42,6 +43,9 @@ class LoginForm extends Component {
                 </div>
                 <div className="form-actions">
                     <button className="btn">Login</button>
+                </div>
+                <div className="form-actions">
+                    <Link to={'signup'}>Criar Conta</Link>
                 </div>
             </form>
         );

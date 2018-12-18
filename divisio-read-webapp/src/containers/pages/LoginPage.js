@@ -5,7 +5,7 @@ import './styles/login-page.scss';
 
 
 import AuthMiddleware from '../../store/modules/auth/middleware';
-import LoginForm from '../../components/forms/LoginForm/LoginForm';
+import LoginForm from '../../components/forms/LoginForm';
 
 const logo = '../src/assets/logo.png';
 
@@ -44,7 +44,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    dispatchLogin: ({ email, password }) => dispatch(AuthMiddleware.loginRequest({ email, password }))
+    dispatchLogin: ({ email, password }) => dispatch(AuthMiddleware.loginRequest({ email, password })),
+    dispatchSingUp: ({ email, password, confirmPassword }) => dispatch(AuthMiddleware.singUpRequest({ email, password, confirmPassword }))
 });
 
 

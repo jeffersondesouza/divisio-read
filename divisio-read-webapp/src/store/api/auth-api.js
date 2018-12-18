@@ -5,7 +5,7 @@ const login = ({ email, password }) => axios
   .then(res=>res.data);
 
 const signup = ({ email, password, confirmPassword }) => 
-  axios.post('signup', { email, password, confirmPassword, name: confirmPassword })
+  axios.post('user/signup', { email, password, confirmPassword })
 
 export default {
   login,

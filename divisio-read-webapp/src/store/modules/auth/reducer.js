@@ -29,6 +29,28 @@ function authReducer(state = INITIAL_STATE, action) {
 				error: { ...action.payload.error }
 			}
 
+
+
+
+			case ActionsTypes.SINGUP_REQUEST:
+			return {
+				...state,
+				isSigningUp: true,
+			}
+
+		case ActionsTypes.SINGUP_SUCCESS:
+			return {
+				...state,
+				isSigningUp: false,
+			}
+
+		case ActionsTypes.SINGUP_FAILURE:
+			return {
+				...state,
+				isSigningUp: false,
+				error: { ...action.payload.error }
+			}
+
 		default:
 			return state;
 	}

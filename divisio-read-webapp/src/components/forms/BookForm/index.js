@@ -48,7 +48,7 @@ class BookForm extends Component {
               <Input label="Páginas" onChange={pages => this.setState({ pages })} />
             </div>
             <div className="form-group">
-              <label className="form__label">Status da Leitura</label>
+              <label className="form__label">Status atual da Leitura</label>
               <SelectBookStatus
                 showLabel={true} 
                 onChange={status => this.setState({ status })} 
