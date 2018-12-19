@@ -21,9 +21,9 @@ O projeto foi desenvolvido utilizando:
 ### Estrutura
 O projeto foi dividido em Server e Client.
 
- - Na pasta [divisio-read-api]('./divisio-read-api') encontra-se a API utilizada;
+ - Na pasta [divisio-read-api](./divisio-read-api) encontra-se a API utilizada;
 
- - Na pasta [divisio-read-webapp]('./divisio-read-webapp') encontra-se a versão React da apicação. 
+ - Na pasta [divisio-read-webapp](./divisio-read-webapp) encontra-se a versão React da apicação. 
 
 
 ## Rodando a APP 
@@ -31,7 +31,7 @@ O projeto foi dividido em Server e Client.
 
 ### Certifique-se de rodar o Server Side
 
-- Abrir o terminal em [divisio-read-api]('./divisio-read-api')
+- Abrir o terminal em [divisio-read-api](./divisio-read-api)
 
 - Instalação das dependências do projeto: 
 ```
@@ -46,7 +46,7 @@ npm start
 
 ### Frontend
 
-- Abrir o terminal em [divisio-read-webapp]('./divisio-read-webapp')
+- Abrir o terminal em [divisio-read-webapp](./divisio-read-webapp)
 
 - Instalação das dependências do projeto: 
 ```
