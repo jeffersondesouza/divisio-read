@@ -38,7 +38,7 @@ O projeto foi dividido em Server e Client.
 npm install 
 ```
 
-- Para a API:
+- Rodar a API:
 ```
 npm start
 ```
@@ -78,12 +78,12 @@ Para rodar os testes basta dar o comando
 npm run test
 ```
 
-Para rodar os testes em modo de watch, fazendo os mesmo se atualizarem a cada mudança nos arquivos basta dar o comando 
+Para rodar os testes em modo de watch, fazendo os mesmo se atualizarem a cada mudança:
 ```
 npm run tdd
 ```
 
-Para conferir a cobertura de testes basta dar o comando 
+Verificar a cobertura de testes basta dar o comando 
 ```
 npm run coverage
 ```
