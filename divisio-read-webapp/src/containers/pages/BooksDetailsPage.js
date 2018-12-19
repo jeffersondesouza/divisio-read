@@ -5,6 +5,7 @@ import BookMidleware from '../../store/modules/books/middleware';
 import UiMidleware from '../../store/modules/ui/middleware';
 
 import BookDetails from '../../components/ui/BookDetails';
+import ErrorMessage from '../../components/ui/ErrorMessage';
 
 
 class BooksDetailsPage extends Component {
@@ -35,16 +36,23 @@ class BooksDetailsPage extends Component {
     }
 
     render() {
-        const { detailsBook, isLoadingDetailsBook, bookMessage } = this.props;
+        const { error, detailsBook, isLoadingDetailsBook, bookMessage } = this.props;
+
         return (
             <div>
-                <BookDetails
-                    book={detailsBook}
-                    bookMessage={bookMessage}
-                    isLoadingBook={isLoadingDetailsBook}
-                    onChangeStatus={this.handleChangeStatus}
-                    onDelete={this.hadleDelete}
-                />
+                {
+                    (error)
+                        ? <ErrorMessage text="Livro não encontrado" />
+                        : (
+                            <BookDetails
+                                book={detailsBook}
+                                bookMessage={bookMessage}
+                                isLoadingBook={isLoadingDetailsBook}
+                                onChangeStatus={this.handleChangeStatus}
+                                onDelete={this.hadleDelete}
+                            />
+                        )
+                }
             </div>
         );
     }

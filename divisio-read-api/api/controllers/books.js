@@ -45,17 +45,24 @@ exports.getById = (req, res, next) => {
         return res.status(500).json({ message: 'cant find user' });
       }
 
-      BookDao
-        .findById(req.params.id)
-        .then(docs => {
-          return res.status(200)
-            .json({
-              book: docs
-            })
-        });
-
+      return BookDao.findById(req.params.id)
     })
-    .catch(err => res.status(500).json({ message: 'Error whlile saving' }));
+    .then(docs => {
+      if (docs) {
+        return res.status(200)
+          .json({
+            book: docs
+          });
+      }
+      return res.status(404)
+        .json({
+          book: docs
+        });
+    })
+    .catch(err => {
+      res.status(500).json({ message: 'Error whlile saving' });
+
+    });
 }
 
 
@@ -93,7 +100,7 @@ exports.delete = (req, res, next) => {
 
   BookDao.remove(req.params.id)
     .then((result) => {
-     
+
       return res.status(200).json({ message: 'Book deleted' })
     })
     .catch(error => {
