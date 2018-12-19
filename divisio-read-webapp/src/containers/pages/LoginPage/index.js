@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 
 import './styles/login-page.scss';
 
+import AuthMiddleware from '../../../store/modules/auth/middleware';
 
-import AuthMiddleware from '../../store/modules/auth/middleware';
-import LoginForm from '../../components/forms/LoginForm';
-import PublicHeader from '../../components/layout/PublicHeader';
+import LoginForm from '../../../components/forms/LoginForm';
+import PublicHeader from '../../../components/layout/PublicHeader';
 
 
 class LoginPage extends Component {

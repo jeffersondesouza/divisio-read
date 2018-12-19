@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import BookMidleware from '../../store/modules/books/middleware';
-import UiMidleware from '../../store/modules/ui/middleware';
+import BookMidleware from '../../../store/modules/books/middleware';
+import UiMidleware from '../../../store/modules/ui/middleware';
 
-import BookDetails from '../../components/ui/BookDetails';
-import ErrorMessage from '../../components/ui/ErrorMessage';
+import BookDetails from '../../../components/ui/BookDetails';
+import ErrorMessage from '../../../components/ui/ErrorMessage';
 
 
 class BooksDetailsPage extends Component {

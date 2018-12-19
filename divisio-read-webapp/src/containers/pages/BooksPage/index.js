@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import BookMidleware from '../../store/modules/books/middleware';
-import UiMidleware from '../../store/modules/ui/middleware';
+import BookMidleware from '../../../store/modules/books/middleware';
+import UiMidleware from '../../../store/modules/ui/middleware';
 
-import BookForm from '../../components/forms/BookForm'
-import BooksList from '../../components/lists/BooksList';
+import BookForm from '../../../components/forms/BookForm'
+import BooksList from '../../../components/lists/BooksList';
 
 class BooksPage extends Component {
 

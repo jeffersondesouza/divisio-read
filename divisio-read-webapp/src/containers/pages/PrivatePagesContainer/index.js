@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
-import AuthMidleware from '../../store/modules/auth/middleware';
-import UiMidleware from '../../store/modules/ui/middleware';
-
-import Header from '../../components/layout/Header';
-import SideMenu from '../../components/ui/SideMenu';
-
 import { Redirect, Switch, Route } from "react-router-dom";
 
-import BooksPage from './BooksPage';
-import BooksDetailsPage from './BooksDetailsPage';
-import Page404 from './Page404';
+import AuthMidleware from '../../../store/modules/auth/middleware';
+import UiMidleware from '../../../store/modules/ui/middleware';
+
+import BooksPage from '../BooksPage';
+import BooksDetailsPage from '../BooksDetailsPage';
+
+import Header from '../../../components/layout/Header';
+import SideMenu from '../../../components/ui/SideMenu';
+
+
 
 class PrivatePages extends Component {
 
