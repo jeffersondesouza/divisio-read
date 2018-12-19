@@ -20,7 +20,9 @@ class BooksPage extends Component {
   }
 
 
-  handleShowCreationBookForm = () => this.props.dispatchShowCreationBookForm();
+  handleShowCreationBookForm = () => {
+    this.props.dispatchShowCreationBookForm();
+  };
 
   handleHideCreationBookForm = () => this.props.dispatchHideCreationBookForm();
 
@@ -35,7 +37,7 @@ class BooksPage extends Component {
   );
 
   render() {
-    const { books,isLoadingBooks, showBookCreationForm } = this.props;
+    const { books, isLoadingBooks, showBookCreationForm } = this.props;
     return (
       <div>
         <BookForm

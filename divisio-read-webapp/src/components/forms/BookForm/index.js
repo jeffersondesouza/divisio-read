@@ -19,6 +19,14 @@ class BookForm extends Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+
+    if (this.form && nextProps.showBookCreationForm && !this.props.showBookCreationForm) {
+      this.form.reset();
+    }
+
+  }
+
   handleSaveBook = (event) => {
     event.preventDefault();
     this.props.onSaveBook(this.state);
@@ -37,7 +45,7 @@ class BookForm extends Component {
               <IcoMoon icon="cross" />
             </button>
           </div>
-          <form className="book-form__form" onSubmit={this.handleSaveBook}>
+          <form ref={form => this.form = form} className="book-form__form" onSubmit={this.handleSaveBook}>
             <div className="form-group">
               <Input label="Título" onChange={title => this.setState({ title })} />
             </div>
@@ -50,9 +58,9 @@ class BookForm extends Component {
             <div className="form-group">
               <label className="form__label">Status atual da Leitura</label>
               <SelectBookStatus
-                showLabel={true} 
-                onChange={status => this.setState({ status })} 
-                />
+                showLabel={true}
+                onChange={status => this.setState({ status })}
+              />
             </div>
             <div className="form-actions">
               <button className="btn">Salvar</button>

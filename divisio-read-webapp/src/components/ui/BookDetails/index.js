@@ -19,7 +19,7 @@ const renderBook = ({ book, onDelete, onChangeStatus, onEditStatus, bookMessage 
     </div>
 
     <div className="book-details__delete">
-      <button type="botton" className="btn btn--delete" onClick={onDelete} >Delete</button>
+      <button type="botton" className="btn btn--delete" onClick={onDelete}>Excluir&nbsp;Livro</button>
     </div>
   </div>
 );
