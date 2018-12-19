@@ -6,8 +6,8 @@ import './styles/login-page.scss';
 
 import AuthMiddleware from '../../store/modules/auth/middleware';
 import LoginForm from '../../components/forms/LoginForm';
+import PublicHeader from '../../components/layout/PublicHeader';
 
-const logo = '../src/assets/logo.png';
 
 class LoginPage extends Component {
 
@@ -20,15 +20,7 @@ class LoginPage extends Component {
 
         return (
             <div className="login-page">
-                <header className="login-page__header">
-                    <figure className="login-page__logo-fig">
-                        <img className="login-page__logo-img" src={logo}></img>
-                    </figure>
-                    <div className="login-page__headind">
-                        <h2 className="login-page__title">Divisio Read</h2>
-                        <h3 className="login-page__sub-title">Gerencie e mantenha sua leitura em dias</h3>
-                    </div>
-                </header>
+                <PublicHeader />
                 <div className="login-page__login-wrapper">
                     <LoginForm error={auth.error} onLoggin={this.handleLogin} />
                 </div>

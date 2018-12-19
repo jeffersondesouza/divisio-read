@@ -1,9 +1,9 @@
 @import '../../../style/sass/abstracts/variables';
 @import '../../../style/sass/abstracts/mixins';
-.login-page {
+.signup-page {
   flex: 1;
  
   &__login-wrapper {
-    margin-top: 4rem;
+    margin-top: 3rem;
   }
 }

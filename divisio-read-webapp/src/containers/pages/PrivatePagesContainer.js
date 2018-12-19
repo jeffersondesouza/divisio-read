@@ -7,10 +7,11 @@ import UiMidleware from '../../store/modules/ui/middleware';
 import Header from '../../components/layout/Header';
 import SideMenu from '../../components/ui/SideMenu';
 
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Redirect, Switch, Route } from "react-router-dom";
 
 import BooksPage from './BooksPage';
 import BooksDetailsPage from './BooksDetailsPage';
+import Page404 from './Page404';
 
 class PrivatePages extends Component {
 
@@ -49,6 +50,9 @@ class PrivatePages extends Component {
         <Switch>
           <Route path="/books" component={BooksPage} exact />
           <Route path="/books/:id" component={BooksDetailsPage} exact />
+          <Route path="*" >
+            <Redirect to="/" />
+          </Route>
         </Switch>
       </div>
     );

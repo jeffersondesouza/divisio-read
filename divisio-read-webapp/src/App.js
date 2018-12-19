@@ -7,6 +7,7 @@ import { verifyAuthetication } from './utils/RouterRedirector';
 
 import LoginPage from './containers/pages/LoginPage';
 import SignUpPage from './containers/pages/SignUpPage';
+import Page404 from './containers/pages/Page404';
 
 
 import PrivatePagesContainer from './containers/pages/PrivatePagesContainer';
