@@ -87,16 +87,3 @@ Para conferir a cobertura de testes basta dar o comando
 ```
 npm run coverage
 ```
-
- ### Requisitos
-- [x] Login
-- [x] Listagem
-- [x] Visualização de detalhe dos items da listagem
-- [x] Criar/Excluir registros
-- [x] Deverá usar React
-- [x] Deverá ser aberto em seu repositório no github
-
-# Extras
-- [ ] Também implementar em React Native
-- [ ] Documentar seus componentes com [docz](https://www.docz.site/)
-- [ ] Testes
