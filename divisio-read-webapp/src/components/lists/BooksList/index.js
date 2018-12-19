@@ -4,6 +4,8 @@ import React from 'react';
 import './style/books.scss';
 
 import Books from './Book';
+import ErrorMessage from '../../ui/ErrorMessage';
+
 
 const renderBook = ({ book, onClick }) => (
   <li key={book._id}>
@@ -23,7 +25,7 @@ const BooksList = ({ books, isLoadingBooks, onSelectBook }) => (
             {
               (books.length)
                 ? <ul>{books.map(book => renderBook({ book, onClick: onSelectBook }))}</ul>
-                : <div>Nenhum livro cadastrado</div>
+                : <ErrorMessage text="Nenhum livro cadastrado"/>
             }
           </div>
         )

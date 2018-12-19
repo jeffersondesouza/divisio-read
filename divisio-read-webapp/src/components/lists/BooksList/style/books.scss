@@ -15,6 +15,14 @@
     margin-right: 2rem;
     border-radius: 1.5rem;
   }
+  @include respond(tap) {
+    margin-right: 10rem;
+    margin-left: 10rem;
+  }
+  @include respond(lap) {
+    margin-right: 20rem;
+    margin-left: 20rem;
+  }
   a {
     &,
     &:link,

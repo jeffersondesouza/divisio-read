@@ -51,6 +51,7 @@ export default class BookMidleware {
             dispatch(Actions.updateBookRequest(book));
             return bookApi
                 .updateBook(book)
+                .then(res => dispatch(this.reloadBooksRequest()))
                 .then(res => dispatch(Actions.updateBookSuccess()))
                 .catch(err => dispatch(Actions.updateBookFailure(err)))
         }
