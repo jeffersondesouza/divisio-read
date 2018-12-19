@@ -20,18 +20,14 @@ const BooksList = ({ books, isLoadingBooks, onSelectBook }) => (
     {
       (isLoadingBooks)
         ? <p>Loading...</p>
-        : (
-          <div>
-            {
-              (books.length)
-                ? <ul>{books.map(book => renderBook({ book, onClick: onSelectBook }))}</ul>
-                : <ErrorMessage text="Nenhum livro cadastrado"/>
-            }
-          </div>
-        )
-
+        : (<div>
+          {
+            (books.length)
+              ? <ul>{books.map(book => renderBook({ book, onClick: onSelectBook }))}</ul>
+              : <ErrorMessage text="Nenhum livro cadastrado, Clique no botão com ícone de '+' para cadastrar" />
+          }
+        </div>)
     }
-
   </div>
 );
 

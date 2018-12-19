@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './error-message.scss';
+import './style/error-message.scss';
 
 const ErrorMessage = ({ text }) => (
   <div className="error-message">{text}</div>

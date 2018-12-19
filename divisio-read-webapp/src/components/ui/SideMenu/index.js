@@ -3,6 +3,10 @@ import PropTypes from 'prop-types';
 
 import './styles/side-menu.scss'
 
+import SideMenuHeader from './SideMenuHeader';
+import SideMenuFooter from './SideMenuFooter';
+
+
 class SideMenu extends Component {
 
   componentDidMount() {
@@ -10,11 +14,9 @@ class SideMenu extends Component {
   }
 
   handleClickOutside = (event) => {
-
     if (this.wrapperRef && !this.wrapperRef.contains(event.target) && this.props.showSidbarMenu) {
       this.props.onHideSideMenu();
     }
-
   }
 
   setWrapperRef = (node) => {
@@ -27,20 +29,10 @@ class SideMenu extends Component {
       ? 'side-menu side-menu--show'
       : 'side-menu side-menu--hidden';
 
-
     return (
-      <div ref={this.setWrapperRef} className={classes} >
-
-        <header className="side-menu__header">
-          <h2 className="side-menu__title">Bem vindo ao Divisio Read</h2>
-          <p className="side-menu__text">Gerencie e controle seu hábito de leitura</p>
-          <p className="side-menu__text">Você pode adicionar livros a sua lista e controlar seus progressos</p>
-        </header>
-
-        <footer className="side-menu__footer">
-          <button onClick={this.props.onLogout} type="button" className="btn">Log Out</button>
-        </footer>
-
+      <div ref={this.setWrapperRef} className={classes}>
+        <SideMenuHeader />
+        <SideMenuFooter onLogout={this.props.onLogout}/>
       </div>
     );
   }
@@ -48,8 +40,8 @@ class SideMenu extends Component {
 
 
 SideMenu.propTypes = {
-  onHideSideMenu: PropTypes.func
+  onHideSideMenu: PropTypes.func,
+  onLogout: PropTypes.func
 }
-
 
 export default SideMenu;

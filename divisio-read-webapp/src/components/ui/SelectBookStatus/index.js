@@ -13,12 +13,3 @@ const SelectBookStatus = ({showLabel, value, onChange, onDelete, hideDeleteOptio
 );
 
 export default SelectBookStatus;
-
-/* {
-  hideDeleteOption
-    ? ''
-    :<div onClick={onDelete}>
-      <BookStatusIcon  showLabel={showLabel} status="delete" type='cross' />
-    </div> 
-}
- */
