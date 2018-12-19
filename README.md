@@ -58,7 +58,7 @@ npm install
 npm start
 ```
 
-- aplicação subirá em [http://localhost:8080/books](http://localhost:8080/books)
+- aplicação subirá em [http://localhost:8080](http://localhost:8080)
 
 
 Para fazer o build de no ambiente de desenvolvimento.  
